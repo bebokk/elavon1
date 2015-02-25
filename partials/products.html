@@ -1,0 +1,45 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class="container">
+				<div ng-include="'partials/elements/top_menu.html'"></div>
+			</div>
+		</nav>
+	</div>
+</div>
+<div class="top_subpage"></div>
+<div class="container products">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">		
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-20 control-label">Search</label>
+				<div class="col-sm-20">
+					<input type="text" class="form-control" id="inputName" ng-model="query" placeholder="Keyword">
+				</div> 
+			</div>
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-20 control-label">Sort by:</label>
+				<div class="col-sm-20">
+					<select ng-model="orderProp" class="form-control">
+						<option value="+name">Alphabetical ASC</option>
+						<option value="+name">Alphabetical DESC</option>
+						<option value="+price">By price ASC</option>
+						<option value="-price">By price DESC</option>
+					</select>
+				</div>
+			</div>
+			</div>
+			<div class="col-md-10">
+				<ul class="properties">
+					<li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+						<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+						<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+						<p>£{{phone.price}}</p>
+						<p>{{phone.snippet}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

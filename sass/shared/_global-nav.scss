@@ -1,0 +1,685 @@
+//===============================================================================
+// GLOBAL NAVIGATION
+//===============================================================================
+.gbl-nav-container {
+  width: 250px;
+  background-color: $ink;
+  position: fixed;
+  left: -280px;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  box-shadow: 0 0 5px rgba($ink, 0.8);
+  border-right: 1px solid darken($ink, 3);
+  transition: left 0.5s cubic-bezier(0.2,0,0.2,0.9);
+
+  &.gbl-nav-container-show, .medium-viewport &, .small-viewport &, .gbl-help-active & {
+    left: 0;
+
+    @media screen and (max-width: $medium) {
+      left: 0;
+      transition: 0;
+      box-shadow: 0 2px 2px rgba($ink, 0.4);
+    }
+  }
+
+  @media screen and (max-width: $medium) {
+    width: 100%;
+    height: auto;
+    bottom: auto;
+    box-shadow: 0 1px 5px rgba($ink, 0.6);
+    border-right: none;
+    left: 0;
+  }
+
+  * {
+    white-space: normal;
+  }
+}
+
+.gbl-nav {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+
+  @media screen and (max-width: $medium) {
+    overflow: auto;
+  }
+}
+
+.gbl-nav-close-btn {
+  animation: pulse-med 0.8s infinite alternate;
+  position: absolute;
+  top: 53px;
+  right: -18px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background: lighten($grey, 5) url(../img/close-icon-white.svg) no-repeat center;
+  background-size: 12px;
+  color: white;
+  display: block;
+  z-index: 101;
+  box-shadow: inset 0 0 0 1px rgba(white, 0.1), 0 2px 4px rgba(black, 0.4);
+  transition: 0.2s;
+
+  .gbl-help-active & {
+    animation: none;
+  }
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+
+  &:hover {
+    background-color: lighten($grey, 12);
+  }
+}
+
+.gbl-nav-hub-btn {
+  background-color: darken($grey, 10);
+  padding: 20px;
+  width: 100%;
+  display: block;
+  color: white;
+  font-size: $delta + 2px;
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+}
+
+.gbl-nav-head {
+  position: absolute;
+  background-color: $ink;
+  z-index: 2;
+  width: 249px;
+
+  @media screen and (max-width: $medium) {
+    width: 100%;
+    position: relative;
+    border-right: none;
+    overflow: hidden;
+  }
+}
+
+.gbl-nav-number {
+  @extend %module-primary-bg;
+  margin: 45px 20px 20px;
+  padding-top: 2px;
+  line-height: 48px;
+
+  .mod1 & { background-color: $mod1-primary; }
+  .mod2 & { background-color: $mod2-primary; }
+  .mod3 & { background-color: $mod3-primary; }
+  .mod4 & { background-color: $mod4-primary; }
+  .mod5 & { background-color: $mod5-primary; }
+  .mod6 & { background-color: $mod6-primary; }
+  .mod7 & { background-color: $mod7-primary; }
+  .mod8 & { background-color: $mod8-primary; }
+
+  @media screen and (max-width: $medium) {
+    background-color: $grey !important;
+    position: absolute;
+    margin: 11px 0 0 10px;
+    width: 37px;
+    height: 37px;
+    line-height: 1.7;
+    font-size: $gamma - 2px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 2px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  @media screen and (max-width: $small) {
+    width: 30px;
+    height: 30px;
+    margin: 11px 0 0 10px;
+    padding-top: 2px;
+    font-size: $delta;
+  }
+}
+
+.gbl-nav-title {
+  color: white;
+  font-size: $beta - 2px;
+  margin: 0 0 0 20px;
+  padding: 0 10px 20px 0;
+  border-bottom: 1px solid $grey;
+  line-height: 1.2;
+
+  @media screen and (max-width: $medium) {
+    border-bottom: none;
+    padding: 18px 80px 20px 38px;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: $epsilon;
+    padding-left: 25px;
+    padding-left: 28px;
+  }
+}
+
+.gbl-nav-mod-list.mod-list {
+  padding: 20px;
+  margin: 0;
+  overflow: auto;
+  list-style: none;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (max-width: $medium) {
+    position: fixed;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    top: -100%;
+    bottom: 0;
+    margin-top: 0 !important;
+    transition: top 0.4s cubic-bezier(0.4,0,0,0.8);
+    padding: 0 0 20px;
+    
+    .mod1 & { background-color: darken($mod1-primary, 5); }
+    .mod2 & { background-color: darken($mod2-primary, 5); }
+    .mod3 & { background-color: darken($mod3-primary, 5); }
+    .mod4 & { background-color: darken($mod4-primary, 5); }
+    .mod5 & { background-color: darken($mod5-primary, 5); }
+    .mod6 & { background-color: darken($mod6-primary, 5); }
+    .mod7 & { background-color: darken($mod7-primary, 5); }
+    .mod8 & { background-color: darken($mod8-primary, 5); }
+
+    &::-webkit-scrollbar-track {
+      .mod1 & { background-color: darken($mod1-primary, 15); }
+      .mod2 & { background-color: darken($mod2-primary, 15); }
+      .mod3 & { background-color: darken($mod3-primary, 15); }
+      .mod4 & { background-color: darken($mod4-primary, 15); }
+      .mod5 & { background-color: darken($mod5-primary, 15); }
+      .mod6 & { background-color: darken($mod6-primary, 15); }
+      .mod7 & { background-color: darken($mod7-primary, 15); }
+      .mod8 & { background-color: darken($mod8-primary, 15); }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      .mod1 & { background-color: darken($mod1-primary, 25); }
+      .mod2 & { background-color: darken($mod2-primary, 25); }
+      .mod3 & { background-color: darken($mod3-primary, 25); }
+      .mod4 & { background-color: darken($mod4-primary, 25); }
+      .mod5 & { background-color: darken($mod5-primary, 25); }
+      .mod6 & { background-color: darken($mod6-primary, 25); }
+      .mod7 & { background-color: darken($mod7-primary, 25); }
+      .mod8 & { background-color: darken($mod8-primary, 25); }
+    }
+
+    &.active {
+      top: 100px;
+      min-height: calc(100% - 100px);
+      max-height: calc(100% - 100px);
+    }
+  }
+  // /.gbl-nav-mod-list.mod-list @media screen and (max-width: $medium)
+
+  @media screen and (max-width: $small) {
+    &.active {
+      top: 93px;
+      min-height: calc(100% - 93px);
+      max-height: calc(100% - 93px);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $ink;
+    -webkit-border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $grey;
+    border: 3px solid $ink;
+    -webkit-border-radius: 10px;
+  }
+}
+// /.gbl-nav-mod-list.mod-list @media screen and (max-width: $small)
+
+.gbl-nav-section {
+  @extend %module-primary-bg;
+  border: 1px solid rgba(white, 0.2);
+  position: relative;
+  padding: 11px 12px 12px 19px;
+  overflow: hidden;
+  display: none;
+  background-image: url(../img/nav-down-white.svg);
+  background-position: center right 20px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  z-index: 100;
+
+  .mod1 & { background-color: $mod1-primary; }
+  .mod2 & { background-color: $mod2-primary; }
+  .mod3 & { background-color: $mod3-primary; }
+  .mod4 & { background-color: $mod4-primary; }
+  .mod5 & { background-color: $mod5-primary; }
+  .mod6 & { background-color: $mod6-primary; }
+  .mod7 & { background-color: $mod7-primary; }
+  .mod8 & { background-color: $mod8-primary; }
+
+  &.active {
+    background-image: url(../img/up-white.svg);
+  }
+
+  @media screen and (max-width: $medium) {
+    display: block;
+  }
+
+  @media screen and (max-width: $small) {
+    padding-left: 11px;
+    background-position: center right 12px;
+  }
+
+  .count {
+    position: absolute;
+    line-height: 1;
+    left: 19px;
+    top: 11px;
+    padding-left: 0;
+    padding-top: 3px;
+
+    @media screen and (max-width: $small) {
+      line-height: 1;
+      left: 12px;
+      top: 11px;
+      padding-left: 0;
+      padding-top: 2px;
+    }
+
+    &::after {
+      background-color: rgba(white, 0.25);
+      height: 20px;
+      width: 20px;
+      top: -2px;
+      left: 0px;
+
+      @media screen and (max-width: $small) {
+        height: 20px;
+        width: 20px;
+        top: -3px;
+        left: 0;
+      }
+    }
+  }
+}
+
+.gbl-nav-section-title {
+  margin: 0 0 0 34px;
+  line-height: 1;
+  color: white;
+  font-size: $delta;
+
+  @media screen and (max-width: $small) {
+    font-size: $epsilon;
+  }
+
+  .fasttrack-logo {
+    height: 15px;
+    width: auto;
+    vertical-align: middle;
+    margin-top: -7px;
+    margin-bottom: -5px;
+  }
+}
+
+.mod-list-link {
+  color: rgba(white, 0.4);
+  padding: 12px 0 12px 38px;
+  margin-bottom: 0;
+  position: relative;
+  display: block;
+  line-height: 1.1;
+
+  @media screen and (max-width: $medium) {
+    padding: 10px 0 10px 35px;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 5px 0 5px 35px;
+  }
+
+  .fasttrack-logo {
+    height: 13px;
+    width: auto;
+    margin-top: 4px;
+
+    @media screen and (max-width: $medium) {
+      margin-top: 0;
+    }
+  }
+
+  .count {
+    margin-top: -3px;
+    top: 50%;
+    left: 3px;
+    position: absolute;
+    transform: translate(0, -50%);
+    color: white;
+
+    @media screen and (max-width: $medium) {
+      color: white;
+      left: -3px;
+    }
+
+    @media screen and (max-width: $small) {
+      left: 0;
+    }
+
+    &::after {
+      background-color: $grey;
+
+      @media screen and (max-width: $medium) {
+        background-color: rgba(white, 0.2);
+      }
+    }
+  }
+}
+
+.mod-list-item {
+  margin: 0;
+
+  @media screen and (max-width: $medium) {
+    border-bottom: 1px solid rgba($ink, 0.1);
+    padding: 8px 20px;
+  }
+
+  @media screen and (max-width: $small) {
+    padding-left: 11px;
+  }
+      
+  &:first-of-type {
+    margin-bottom: 20px;
+
+    @media screen and (max-width: $medium) {
+      margin-bottom: 0;
+    }
+  }
+
+  &.complete {
+    a {
+      color: white;
+      transition: 0.2s;
+
+      &:hover {
+        color: white;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &.active {
+    @media screen and (max-width: $medium) {
+      background-color: rgba($ink, 0.2);
+    }
+  }
+
+  &.active .mod-list-link {
+    .mod1 & { color: $mod1-primary; }
+    .mod2 & { color: $mod2-primary; }
+    .mod3 & { color: $mod3-primary; }
+    .mod4 & { color: $mod4-primary; }
+    .mod5 & { color: $mod5-primary; }
+    .mod6 & { color: $mod6-primary; }
+    .mod7 & { color: $mod7-primary; }
+    .mod8 & { color: $mod8-primary; }
+
+    @media screen and (max-width: $medium) {
+      .mod1 &, .mod2 &, .mod3 &, .mod4 &, .mod5 &, .mod6 &, .mod7 &, .mod8 & { 
+        color: white;
+      }
+    }
+
+    .count::after {
+      .mod1 & { background-color: $mod1-primary; }
+      .mod2 & { background-color: $mod2-primary; }
+      .mod3 & { background-color: $mod3-primary; }
+      .mod4 & { background-color: $mod4-primary; }
+      .mod5 & { background-color: $mod5-primary; }
+      .mod6 & { background-color: $mod6-primary; }
+      .mod7 & { background-color: $mod7-primary; }
+      .mod8 & { background-color: $mod8-primary; }
+
+      @media screen and (max-width: $medium) {
+        .mod1 &, .mod2 &, .mod3 &, .mod4 &, .mod5 &, .mod6 &, .mod7 &, .mod8 & { background-color: rgba(white, 0.2); 
+        }
+      }
+    }
+  }
+}
+
+
+// Mini Global Header
+.gbl-nav-mini {
+  position: fixed;
+  left: 0;
+  top: 10px;
+  z-index: 99;
+  transition: left 0.6s cubic-bezier(0.2,0,0.2,1);
+  box-shadow: 0 0 3px rgba($ink, 0.4);
+  border: 1px solid darken($ink, 3);
+  border-left: none;
+
+  &.gbl-nav-mini-hide, .gbl-help-active & {
+    left: -102%;
+  }
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+
+  .count::after {
+    .mod1 & { background-color: $mod1-primary; }
+    .mod2 & { background-color: $mod2-primary; }
+    .mod3 & { background-color: $mod3-primary; }
+    .mod4 & { background-color: $mod4-primary; }
+    .mod5 & { background-color: $mod5-primary; }
+    .mod6 & { background-color: $mod6-primary; }
+    .mod7 & { background-color: $mod7-primary; }
+    .mod8 & { background-color: $mod8-primary; }
+  }
+}
+
+.gbl-nav-mini-btn {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: darken($grey, 10);
+  background-image: url(../img/menu-icon-white.svg);
+  background-repeat: no-repeat;
+  background-position: center left 10px;
+  background-size: 18px;
+  padding: 13px 30px 20px 36px;
+  height: 43px;
+  transition: background-color 0.2s;
+  margin-bottom: 0;
+
+  &:hover {
+    background-color: darken($grey, 7);
+    color: white;
+  }
+}
+
+.gbl-nav-mini-title {
+  padding: 10px 30px 12px 10px; 
+  background-color: $ink;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -4px;
+  height: 43px;
+
+  .count {
+    top: -3px;
+
+    &::after {
+      @extend %module-primary-bg;
+    }
+  }
+}
+
+.gbl-nav-mini-section {
+  position: relative;
+  display: inline-block;
+  margin-left: 14px;
+  margin-bottom: 0;
+  vertical-align: middle;
+
+  .fasttrack-logo {
+    height: 13px;
+    width: auto;
+    display: block;
+  }
+}
+
+.gbl-nav-mini-status {
+  position: absolute;
+  color: rgba(white, 0.7);
+  top: 50px;
+  left: 0;
+  padding: 6px 10px 8px;
+  background-color: lighten($ink, 6);
+  border: 1px solid darken($ink, 3);
+  border-left: none;
+  box-shadow: 0 0 3px rgba($ink, 0.4);
+
+  strong {
+    color: white;
+    font-weight: 700;
+    margin-right: 2px;
+  }
+}
+
+
+// Global Help Nav
+.gbl-nav-help-container {
+  position: fixed;
+  right: 0;
+  top: 10px;
+  z-index: 96;
+  transition: 0.5s;
+
+  &.introjs-fixParent {
+    position: fixed!important;
+  }
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+
+  body.body-hub & {
+    top: 20px;
+  }
+
+  body.game-end-active &, body.game-start-active &{
+    right: -100%;
+  }
+}
+
+.gbl-help-btn {
+  display: inline-block;
+  vertical-align: top;
+  text-indent: 100px;
+  box-shadow: 0 0 3px rgba($ink, 0.4);
+  border: 1px solid darken($ink, 5);
+  border-right: none;
+  z-index: 9;
+  background: $ink url(../img/help-icon.svg) center no-repeat;
+  background-size: 28px;
+  height: 45px;
+  width: 45px;
+  margin: 0 0 0 8px;
+  transition: 0.2s;
+
+  &:hover, .gbl-help-active & {
+    text-indent: 34px;
+    width: 85px;
+    background-position: 9px center;
+  }
+
+  body.body-hub & {
+    border: none;
+    box-shadow: none;
+    height: 43px;
+
+    &:hover {
+      text-indent: 34px;
+      width: 85px;
+      background-position: 9px center;
+      background-color: $ink;
+    }
+  }
+}
+
+// Global Arrow Nav
+.gbl-arrow-nav {
+  display: inline-block;
+  vertical-align: top;
+  box-shadow: 0 0 3px rgba($ink, 0.4);
+  border: 1px solid darken($ink, 5);
+  background: $ink;
+
+  @media screen and (max-width: $small) {
+    display: none;
+  }
+
+  body.body-hub & {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.gbl-arrow-nav-btn {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 13px 20px 14px;
+  transition: 0.2s;
+
+  &:hover {
+    background-size: 20px;
+  }
+}
+
+.gbl-arrow-nav-right {
+  background: url(../img/arrow-right-white.svg) no-repeat center;
+  background-size: 15px;
+}
+
+.gbl-arrow-nav-left {
+  border-right: 1px solid lighten($ink, 10);
+  background: url(../img/arrow-left-white.svg) no-repeat center;
+  background-size: 15px;
+}
+
+// Tip navigation
+.gbl-nav-tip {
+  display: inline-block;
+  background: lighten($ink, 7);
+  padding: 12px 15px;
+  box-shadow: 0 0 3px rgba($ink, 0.4);
+  border: 1px solid $ink;
+  z-index: 9;
+  height: 45px;
+  margin: 0 8px 0 0;
+  text-align: center;
+  position: relative;
+
+  @media screen and (max-width: 900px) {
+    top: 55px;
+    right: 0;
+    border-right: none;
+    position: absolute;
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: $medium) {
+    display: none !important;
+  }
+}

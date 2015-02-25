@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Questionnnaire</title>
+  <link rel="stylesheet" href="css/basic1.css">
+  <link rel="stylesheet" href="css/style.css">  
+  <link href="css/jquery-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles-1.css">
+<!--   <link rel="stylesheet" href="css/styles-500.css"> -->
+</head>
+<body ng-app="webApp" class="body-slides mod1 mod-secondary">
+
+<input type="hidden" name="not_clicable" id="not_clicable" />
+<input type="hidden" name="not_dragable" id="not_dragable" />
+<input type="hidden" name="type1" id="type1" />
+<div class="fullpage loading_page">
+  <div class="section-top">
+      <img class="loading-logo-top" src="img/tcp-logo-colour.svg" alt="logo">
+  </div>
+  <div class="section-middle">
+      <div class="loading-circle" class="loading" style="position: relative;
+	width: 210px; height: 210px; border: 10px solid #ffffff; border-radius: 50%; z-index: 1;">
+        <p>Loading questionnaire</p>   
+        <span class="progress0" id="progress0">0.0%</span>
+        <div class="progress1" id="progress1"></div>
+        <div class="progress2" id="progress2"></div>
+      </div>
+  </div>
+  <div class="section-bottom">
+      <img class="loading-logo-bottom" src="img/elavon-logo-col.svg" alt="logo">
+    </div>
+</div>  
+
+<div class="thank_you" style="display:none;width:100%;">
+  <div id="bodyslide" class="col_1_1" style="width:100%;">
+      <div class="thanks-box">
+          <div class="thanks-text">
+            <p class="section-title heading-2 text_darkblue">Thank&nbsp;you!</p>
+            <p class="question text_blue">Your results are going to be very useful to the team.</p>
+          </div> 
+          <img class="tick-final" src="img/tick-selected.svg" alt="tick">      
+      </div>
+  </div>
+</div> 
+<div class="body-slides mod1 mod-secondary content">
+  <!-- <nav class="gbl-nav-help-container">
+    <nav class="nav-container">
+        <button class="arrow-nav arrow-nav-r gbl-arrow-nav-right"></button>
+        <button class="arrow-nav arrow-nav-l gbl-arrow-nav-left"></button>
+    </nav>  
+  </nav>   -->
+  <!-- /.slide-head-block -->
+  <span ng-controller="formControler" class="slide-block0 give-width"> 
+    <form novalidate class="css-form give-width" ng-controller="personController">
+
+
+
+        <!--NEW INTRO PAGE-->
+        <section class="slide-block slide-head-block mod-secondary mod-secondary-dark10 intro-back-img" >
+            <div id="bodyslide">
+          
+                <img class="intro-roundel-top" src="img/logo-roundel-01.svg" alt="logo">
+                     
+              
+                  <p class="intro-title text_white" id="intoduction_title"></p>
+
+                  <p class="intro-subtitle text-brightblue">
+                      Providing feedback and <br> perspectives to the Senior Leadership Team <br />
+                      <span>(All answers are anonymous)</span>
+                  </p> 
+     
+                <button class="name_filled gbl-arrow-nav-right go-to-introduction-new">Go to introduction</button> 
+                 <img class="intro-roundel-bottom" src="img/logo-roundel-02.svg" alt="logo">
+            </div>
+        </section>
+
+
+
+        <section class="slide-block slide-head-block mod-secondary mod-secondary-dark10">
+            <div id="bodyslide" class="col_0">
+              <div class="roundel-top-tcp">
+                  <img class="logo-tcp-colour" src="img/tcp-logo-colour.svg" alt="logo">
+              </div>
+              <!-- intro slide content-->    
+              <div id="slide-content" class="slide-short">
+                  <p class="intro-text text_darkblue"><span class="text_lightblue">Welcome to the Elavon SLT 'Leadership &amp; Team Effectiveness' survey.</span></br></br>
+                  <span style="display:inline; font-family: arial; color: rgb(0, 69, 141);" id="intoduction_text"></span>
+              </div><!-- close slide-content -->
+                     
+          </div> <!-- close bodyslide -->    
+          <button class="gbl-arrow-nav-right go_to_introduction">Start</button>  
+        </section>   		
+        <section class="slide-block slide-head-block mod-secondary mod-secondary-dark10" id="section_name">
+          <div id="bodyslide" class="col_1_1">
+            <div class="slide-block-inner">                 
+              <p class="section-title heading-2 text_blue" style="color: {{ x.color3 }} !important;">Login</p>
+              <p class="question text_white">Please enter your name to begin the questionnaire</p> 
+              <div id="text-input">
+                <textarea placeholder="Enter your name.." name="name" id="name" class="form-control name1" style="margin-top:25px" maxlength="500"></textarea>    
+              </div>      
+            </div>
+          </div>
+          <button class="log-in name_filled gbl-arrow-nav-right">Log in</button>     
+        </section>
+        <section class="slide-block mod-secondary-dark5 start_hidden" id="{{ x.extra_class }}" ng-repeat="x in names">   
+          <any ng-if="x.answers_groupid == 'title_page'" ng-style="{'background-color':x.color1}" style="background-color: {{ x.color1 }};height:100%; display:block;max-width: 100%;" class="body-ng"> 
+            <div id="slide-content">
+                <img class="logo-top" src="img/tcp-logo.svg" alt="TCP logo"> 
+                <div class="roundel">
+                   <img class="roundel-large" src="img/section-roundel-light.svg" alt="section"/>
+                  <p ng-style="{'color':x.color1}" class="roundel-text heading-1" style="color: {{ x.color1 }}">{{ x.i2 }}</p>
+                </div>
+                <p  class="section-title heading-2 text_whiteblue">{{ x.name }}</p>
+                <button class="confirm gbl-arrow-nav-right">Next</button>     
+             </div>
+          </any>
+          <any ng-if="x.answers_groupid == 'text_page'" ng-style="{'background-color':x.color1}" style="background-color: {{ x.color1 }} !important;height:100%;display:block;max-width: 100%;" class="body-ng"> 
+            <div class="roundel-top">
+                <img class="roundel-large" src="img/section-roundel-light.svg" alt="section">  
+                <p class="roundel-text-small heading-1" style="color: {{ x.color1 }}">{{ x.i2 }}</p>
+            </div>   
+            <div id="slide-content">                
+              <p class="section-title heading-2 text_whiteblue"></br></p>
+              <!--<p class="question text_white">{{ x.name }}</p>-->
+              <p class="question text_white">Please explain why you selected these people:</p>
+              <div class="textarea_fields0"><div class="textarea_fields" id="pic_com_list_{{ x.i }}" maxlength="40"></div></div> 
+              <button class="confirm {{ x.slide }}">Next</button>  
+            </div>
+          </any>  
+          <any ng-if="x.answers_groupid == 'faces'" ng-style="{'background-color':x.color1}" style="background-color: {{ x.color1 }} !important;height:100%;display:block;max-width: 100%;" class="body-ng"> 
+            <div class="roundel-top">
+                <img class="roundel-large" src="img/section-roundel-light.svg" alt="section">  
+                <p class="roundel-text-small heading-1" style="color: {{ x.color1 }}">{{ x.i2 }}</p>
+            </div> 
+            <div class="slide-block-inner">                 
+              <!--<p class="section-title heading-2 text_blue" style="color: {{ x.color3 }} !important;">{{ x.i1 }} <!--of {{ x.num_rows }}--> <!--</p>-->
+              <div class="progress-bar-container">
+                <div class="progress-bar">
+                  <div class="progress-bar-filled" ng-style="{'width':x.progress}" style="width:{{ x.progress }}% !important;"></div>
+                </div>
+              </div>
+              <p class="question text_white">{{ x.name }}</p>
+              <div id="img-selection">                 
+                <div ng-repeat="x1 in x.answers" class="img-override-1"> 
+                  <!--insert names for images here-->      
+                  <button class="answer-img-back button4 button1_{{ x.i }}" id="button1_{{ x.i }}_{{ x1.id }}" value="{{ x1.name }}" type="submit">
+                    <img id="answer-img-1" class="answer-img" src="{{ x1.picture }}" alt="{{ x1.name }}">
+                  </button>
+                </div>
+                <button class="confirm gbl-arrow-nav-right">Next</button>
+              </div>
+              <input type="hidden" name="values_{{ x.i }}" id="button1_{{ x.i }}" value="" class="values" />
+            </div>
+          </any>      
+          <any ng-if="x.answers_groupid == 'separetor'" ng-style="{'background-color':x.color1}" style="background-color: {{ x.color1 }} !important;height:100%;display:block;max-width: 100%;" class="body-ng"> 
+            <div id="background-divider">
+               <button class="confirm name_filled gbl-arrow-nav-right">Next</button> 
+            </div> 
+          </any>
+          <any ng-if="x.answers_groupid == 'charter'" ng-style="{'background-color':x.color1}" style="background-color: {{ x.color1 }} !important;height:100%;display:block;max-width: 100%;" class="body-ng"> 
+            <div id="bodyslide" class="col_7">
+               <div class="roundel-top">
+                  <img class="roundel-large" src="img/section-roundel-dark.svg" alt="section">  
+                  <p class="roundel-text-small heading-1 text_whiteblue">{{ x.i2 }}</p>
+                </div>
+            </div> 
+            <div class="slide-block-inner">                 
+              <p class="section-title heading-2 text_blue xtra-margin-top">Elavon</br> Common Purpose</p>
+              <p class="question text_darkblue"><span class="text_blue">{{ x.name }}</span>
+              </p>  
+              <button class="confirm name_filled gbl-arrow-nav-right">Next</button>            
+            </div>
+          </any>      
+          <any ng-if="x.answers_groupid != 'title_page' && x.answers_groupid != 'text_page' && x.answers_groupid != 'separetor' && x.answers_groupid != 'charter' && x.answers_groupid != 'faces'"  
+           ng-style="{'background-color':x.color1}" style="background-color: {{ x.color1 }} !important;height:100%;display:block;max-width: 100%;" class="body-ng"> 
+            <div class="roundel-top">
+                <img class="roundel-large" src="img/section-roundel-light.svg" alt="section">  
+                <p class="roundel-text-small heading-1" style="color: {{ x.color1 }}">{{ x.i2 }}</p>
+            </div> 
+            <div class="slide-block-inner">                 
+              <!--<p class="section-title heading-2 text_blue" style="color: {{ x.color3 }} !important;">{{ x.i1 }} <!--of {{ x.num_rows }}--> <!--</p>-->
+              <div class="progress-bar-container">
+                <div class="progress-bar">
+                  <div class="progress-bar-filled" ng-style="{'width':x.progress}"></div>
+                </div>
+              </div>
+
+              <!--**********NEW CONTENT IN HERE FOR CHARTER PAGE*********-->
+
+              <p ng-if="x.charter != ''" class="heading-2 no-bottom-margin " ng-style="{'color':x.color3}" style="color: {{ x.color3 }} !important;">Elavon Charter: {{ x.charter }}</p>
+              <p ng-if="x.extent_header != ''" class="question text_white no-bottom-margin ">{{ x.extent_header }}</p>
+              <p class="question text_white">{{ x.name }}</p>
+              <any ng-if="x.answers_groupid == 1">
+                <div id="likert">
+                  <div class="likert-1">
+                    <p class="heading-3 text_white">Strongly</br>disagree</p>
+                  </div> 
+                  <div class="likert-2">
+                    <p class="heading-3 text_white"></br>Disagree</p>
+                  </div>
+                  <div class="likert-3">
+                    <p class="heading-3 text_white"></br>Neutral</p>
+                  </div> 
+                  <div class="likert-4">
+                    <p class="heading-3 text_white"></br>Agree</p>
+                  </div>
+                  <div class="likert-5">
+                    <p class="heading-3 text_white">Strongly</br>agree</p>
+                  </div> 
+                  <input type="hidden" id="amount1_{{ x.i }}" name="values_{{ x.i }}" class="values">
+                  <div class="slider1" id="slider1_{{ x.i }}"></div>
+                </div> 
+                <!--<button class="confirm confirm-move-up">Confirm</button> -->
+                <button class="confirm {{ x.slide }}">Next</button>
+              </any>
+              <!--section for images-->
+              <any ng-if="x.answers_groupid == 2">
+                <div id="text-input">
+                  <textarea placeholder="Text..." name="values_{{ x.i }}" id="values_{{ x.i }}" class="form-control values" maxlength="500" style="margin-top:25px"></textarea>    
+                  <button class="confirm {{ x.slide }}">Next</button>
+                </div>  
+              </any>
+              <any ng-if="x.answers_groupid == 3">
+                <div id="img-selection">                 
+                  <div ng-repeat="x1 in x.answers" class="img-override-1"> 
+                  <!--insert names for images here-->      
+                    <button class="answer-img-back button6 button1_{{ x.i }}" id="button1_{{ x.i }}_{{ x1.id }}" value="{{ x1.name }}" type="submit">
+                      <img id="answer-img-1" class="answer-img" src="{{ x1.picture }}" alt="{{ x1.name }}">
+                    </button>
+                  </div>                  
+                  <!--
+                  <button ng-if="x.slide == 'gbl-arrow-nav-right'" class="button-nobody gbl-arrow-nav-right">Nobody</button>
+                  <button ng-if="x.slide == 'gbl-arrow-nav-right'" class="button-nobody gbl-arrow-nav-right">Nobody</button>
+                  -->
+                  <button class="button-nobody button22" id="button22_{{ x.i }}">Nobody</button>
+                  <button class="confirm {{ x.slide }}">Next</button>
+                </div>
+                <input type="hidden" name="values_{{ x.i }}" id="button1_{{ x.i }}" value="" class="values" />
+              </any>
+              <any ng-if="x.answers_groupid == 7">
+                <div id="img-selection">                 
+                  <div ng-repeat="x1 in x.answers" class="img-override-1"> 
+                  <!--insert names for images here-->      
+                    <button class="answer-img-back button6 button1_{{ x.i }}" id="button1_{{ x.i }}_{{ x1.id }}" value="{{ x1.name }}" type="submit">
+                      <img id="answer-img-1" class="answer-img" src="{{ x1.picture }}" alt="{{ x1.name }}">
+                    </button>
+                  </div>
+                  <button class="confirm {{ x.slide }}">Next</button>
+                </div>
+                <input type="hidden" name="values_{{ x.i }}" id="button1_{{ x.i }}" value="" class="values" />
+              </any>
+              <any ng-if="x.answers_groupid == 8">
+                <div id="img-selection">                 
+                  <div ng-repeat="x1 in x.answers" class="img-override-2"> 
+                    <div class="ng-scope answer-img-text"> 
+                      <div class="answer-img-back button1_{{ x.i }}" id="button1_{{ x.i }}_{{ x1.id }}" value="{{ x1.name }}">
+                        <img id="answer-img-1" class="answer-img" src="{{ x1.picture }}" alt="{{ x1.name }}">
+                      </div>
+                      <input name="pic_com_{{ x.i }}_{{ x1.id }}" id="pic_com_{{ x.i }}_{{ x1.id }}" class="text-input-who text_darkblue pic_com" type="text"  name="img-answer" placeholder="Name..." />
+                    </div>
+                  </div>
+                  <button class="confirm {{ x.slide }}">Next</button>
+                </div>
+                <input type="hidden" name="values_{{ x.i }}" id="button1_{{ x.i }}" value="" class="values" />
+              </any>
+              <any ng-if="x.answers_groupid == 9">
+                <div id="img-selection">                 
+                  <div ng-repeat="x1 in x.answers" class="img-override-1">
+                    <button class="answer-img-back button3 button1_{{ x.i }}" id="button1_{{ x.i }}_{{ x1.id }}" value="{{ x1.name }}" type="submit">
+                      <img id="answer-img-1" class="answer-img" src="{{ x1.picture }}" alt="{{ x1.name }}">
+                    </button>
+                  </div>
+                </div>
+                <button class="confirm {{ x.slide }}">Next</button>
+                <input type="hidden" name="values_{{ x.i }}" id="button1_{{ x.i }}" value="" class="values" />
+              </any>
+              <any ng-if="x.answers_groupid == 10">
+                <p class="sub-note"> (Drag the faces into the buckets if you agree or disagree. If you are unsure about someone, just leave them where they are)</p>
+                <div id="sortable1" class="connectedSortable">                 
+                  <div class="answer-img-back button-mini" ng-repeat="x1 in x.answers" id="drag1_{{ x.i }}_{{ x1.id }}">      
+                    <img id="answer-img-{{ x.i }}_{{ x1.id }}" class="img-mini" src="{{ x1.picture }}" alt="{{ x1.name }}">
+                    <span class="text_lightblue">{{ x1.name }}</span>
+					<input type="hidden" name="pic_com_{{ x.i }}_{{ x1.id }}" id="pic_com_{{ x.i }}_{{ x1.id }}" value="0" class="pic_com" />
+                  </div>    
+                </div>
+                <p class="click-name text_lightblue">&nbsp;</p>
+                <!--three buckets-->
+                <div id="bucket-holder" class="bucket-holder">
+                  <div class="bucket-standard buckets">
+                    <div id="band" class="bucket-band"><img class="bucket-face" src="img/bucket-bad-1.svg"></div> 
+                    <div id="sortable2" class="connectedSortable bucket-standard1"></div>
+                  </div>
+                  <!--
+                  <div class="bucket-standard bucket-2 buckets">
+                    <div id="band" class="bucket-band"><img class="bucket-face" src="img/bucket-neutral-1.svg"></div> 
+                    <div id="sortable3" class="connectedSortable bucket-standard1"></div>
+                  </div>
+                  -->
+                  <div class="bucket-standard bucket-3 buckets">
+                    <div id="band" class="bucket-band"><img class="bucket-face" src="img/bucket-good-1.svg"></div> 
+                    <div id="sortable4" class="connectedSortable bucket-standard1"></div>
+                  </div>
+                </div>
+                <button class="confirm {{ x.slide }}">Next</button>
+                <input type="hidden" name="values_{{ x.i }}" id="button1_{{ x.i }}" value="" class="values" />
+              </any>
+              <any ng-if="x.answers_groupid == 11">
+                <p class="sub-note"> (Either slide the face or click the check or cross - or leave in the middle if you are unsure)</p>
+                <div class="likert3-container">
+                  <div id="#" class="likert3 img-override-3" ng-repeat="x1 in x.answers">
+                    <img id="likert_cross_{{ x.i }}_{{ x1.id }}" class="likert-cross" src="img/cross.svg">
+                    <img id="likert_tick_{{ x.i }}_{{ x1.id }}" class="likert-tick" src="img/tick.svg">
+                    <div class="slider2 ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="#">
+                      <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-max">
+                      </div>                      
+                    </div>
+                    <p class="click-name text_lightblue" ng-style="{'color':x.color3}" style="color: {{ x.color3 }}">{{ x1.name }}</p>
+          					<div id="sortable_faces1_{{ x.i }}_{{ x1.id }}" class="sortable_faces11">
+          						<a class="likert3_1" id="likert3_1_{{ x.i }}_{{ x1.id }}" onfocus="blur();"></a> 
+          						<a class="likert3_1" id="likert3_2_{{ x.i }}_{{ x1.id }}" onfocus="blur();">
+          							<span id="likert3_1_{{ x.i }}_{{ x1.id }}_picture" class="ui-slider-handle ui-state-default ui-corner-all face1" style="background: url('{{ x1.picture2 }}') no-repeat scroll 0 0 rgba(0, 0, 0, 0);left: 36%;" 
+									tabindex="0"></span>
+          						</a>
+          						<a class="likert3_1" id="likert3_3_{{ x.i }}_{{ x1.id }}" onfocus="blur();"></a>
+          					</div>
+							<div style="display:none;" name="face_{{ x.i }}_{{ x1.id }}" id="face_{{ x.i }}_{{ x1.id }}" />
+								<span id="likert3_1_{{ x.i }}_{{ x1.id }}_picture" class="ui-slider-handle ui-state-default ui-corner-all face1" style="background: url('{{ x1.picture2 }}') no-repeat scroll 0 0 rgba(0, 0, 0, 0);left: 36%;" 
+          						tabindex="0"></span>
+							</div>
+           					<input type="hidden" name="pic_com_{{ x.i }}_{{ x1.id }}" id="pic_com_{{ x.i }}_{{ x1.id }}" value="0" class="pic_com" />
+                  </div> 
+                </div>
+                <button class="confirm {{ x.slide }}">Next</button>    
+                <input type="hidden" name="values_{{ x.i }}" id="button1_{{ x.i }}" value="" class="values" />
+              </any>              
+              <any ng-if="x.answers_groupid == 4">
+                <div id="slide-content content-no-margin">
+                  <div class="textarea_fields0" style="float:left;">
+                    <div class="textarea_fields" maxlength="40">                                
+                      <div ng-repeat="x2 in x.people" id="person_{{ x.i }}_{{ x2.id }}" style="display:none;">       
+
+                        <p style="width:100%;display:block;float:left;" class="heading-3">{{ x2.name }}</p> <br>
+
+                        <div style="width:100%;display:block;float:left;">
+                          <div style="display:block;float:left;" ng-repeat="x1 in x.answers" class="quest-button-holder">
+                            <button class="quest-button button5 button5_{{ x.i }}_{{ x2.id }}" id="button5_{{ x.i }}_{{ x2.id }}_{{ x1.id }}" value="{{ x1.name }}">{{ x1.name }}</button>
+                          </div> 
+						  <input type="hidden" name="values1_{{ x.i }}_{{ x2.id }}" id="values1_{{ x.i }}_{{ x2.id }}" value="" class="values1" />
+                        </div>
+                       <div id="text-input">
+                        <textarea placeholder="Add alternative feeback..." name="pic_com_{{ x.i }}_{{ x2.id }}" id="pic_com_{{ x.i }}_{{ x2.id }}" class="form-control pic_com text-alt-feedback" style="margin-top:8px" maxlength="500"></textarea>    
+                      </div>    
+                      </div>
+                    </div>
+                  </div> 
+                </div> 
+                <button class="confirm {{ x.slide }}">Next</button>
+              </any>
+              <any ng-if="x.answers_groupid == 5">
+                <div id="likert2">
+                  <div class="likert-1">
+                    <p class="heading-3 text_white">Not at all</p>
+                  </div> 
+                  <div class="likert-2">
+                    <p class="heading-3 text_white"></br>&nbsp</p>
+                  </div>
+                  <div class="likert-3">
+                    <p class="heading-3 text_white"></br>&nbsp</p>
+                  </div> 
+                  <div class="likert-4">
+                    <p class="heading-3 text_white"></br>&nbsp</p>
+                  </div>
+                  <div class="likert-5 likert-bump-left">
+                    <p class="heading-3 text_white">Strongly</p>
+                  </div> 
+                  <input type="hidden" id="amount2_{{ x.i }}" name="values_{{ x.i }}" class="values">
+                  <div class="slider2" id="slider2_{{ x.i }}"></div>
+                  <input id="i_dont_know_checkbox_{{ x.i }}" class="i_dont_know2 gbl-arrow-nav-right likert-checkbox" type="checkbox" name="slider-check">
+                  <a id="i_dont_know_{{ x.i }}" class="i_dont_know gbl-arrow-nav-right">Don't know</a>
+                  <br>
+			         	 <!--<a id="i_dont_know_{{ x.i }}" class="i_dont_know gbl-arrow-nav-right">I don`t know</a> -->
+                </div> 
+                <button class="confirm {{ x.slide }}">Next</button>
+              </any>
+            </div>
+          </any>
+        </section>
+        <section class="slide-block mod-secondary-dark5 start_hidden">       
+          <div id="bodyslide" class="col_1_1">
+            <div id="slide-content">
+              <p class="section-title heading-2 text_blue">Thank you.</p>
+              <p class="thankyou-subtext text_white" id="thank_you_text"></p>
+              <p class="thankyou-subtext text_white">
+               (All answers are anonymous)
+              </p>
+            </div>
+            <button class="submit" ng-click="submit()">Submit your answers</button> 
+          </div>
+        </section>
+    </form>
+  </span>
+</div>
+  <script src="js/fastclick.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/jquery.ui.touch-punch.min.js"></script>  
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

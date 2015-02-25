@@ -1,0 +1,240 @@
+//===============================================================================
+// NINJA GAME
+//===============================================================================
+// Skranji - Regular 400
+@font-face {
+    font-family: 'Skranji';
+    src: url('../fonts/skranji-400/skranji-400.eot');
+    src: url('../fonts/skranji-400/skranji-400.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/skranji-400/skranji-400.woff') format('woff'),
+         url('../fonts/skranji-400/skranji-400.ttf') format('truetype'),
+         url('../fonts/skranji-400/skranji-400.svg#Skranji') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ninja-wrap {
+  @extend %module-secondary-bg;
+  background-image: url(../img/games/ninja-pattern-bg.png);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 400px;
+
+  .mod1 & { background-color: $mod1-secondary; }
+  .mod2 & { background-color: $mod2-secondary; }
+  .mod3 & { background-color: $mod3-secondary; }
+  .mod4 & { background-color: $mod4-secondary; }
+  .mod5 & { background-color: $mod5-secondary; }
+  .mod6 & { background-color: $mod6-secondary; }
+  .mod7 & { background-color: $mod7-secondary; }
+  .mod8 & { background-color: $mod8-secondary; }
+} 
+
+.ninja-question-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.ninja-question-guy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+
+  @media screen and (max-width: 900px) {
+    width: 150px;
+  }
+
+  @media screen and (max-width: $medium) {
+    position: relative;
+    width: 100px;
+    bottom: -8px;
+    left: -10px;
+  }
+
+  @media screen and (max-width: $small) {
+    display: none;
+  }
+}
+
+.ninja-question {
+  background-color: white;
+  box-shadow: 2px 3px 0 5px rgba(black, 0.2);
+  transform: rotate(2deg) skew(1deg, -3deg);
+  position: relative;
+  bottom: 25px;
+  left: 200px;
+  color: $ink;
+  padding: 30px 30px 20px;
+  z-index: 1;
+  max-width: 60%;
+
+  @media screen and (max-width: 900px) {
+    left: 150px;
+    bottom: 5px;
+    padding: 20px 20px 15px;
+  }
+
+  @media screen and (max-width: $medium) {
+    max-width: 100%;
+    left: 0;
+    bottom: 0;
+    padding-top: 18px;
+    padding-bottom: 8px;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 15px 20px 15px;
+    bottom: -5px;
+  }
+  
+  &::before {
+    content: "";
+    display: table;
+    position: absolute;
+    bottom: 31px;
+    left: -13px;
+    height: 30px;
+    width: 30px;
+    transform: rotate(-45deg);
+    background-color: white;
+    box-shadow: 2px 3px 0 5px rgba(black, 0.2);
+
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    height: 60px;
+    width: 40px;
+    background-color: white;
+
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
+  }
+
+  .mini-game-active & {
+    animation: tada 1s;
+  }
+}
+
+.ninja-question-text {
+  z-index: 1;
+  position: relative;
+  display: table;
+  font-family: $skranji;
+  font-size: $alpha;
+  line-height: 1.1;
+  margin: 0;
+
+  @media screen and (max-width: 900px) {
+    font-size: $gamma;
+  }
+
+  @media screen and (max-width: $medium) {
+    font-size: $gamma;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: $medium) {
+    font-size: $delta;
+  }
+}
+
+.ninja-question-help {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  background-color: #dd2c00;
+  padding: 7px 17px;
+  box-shadow: 1px 1px 0 1px rgba(black, 0.2);
+  color: white;
+  font-family: $skranji;
+  border: 2px solid darken(#dd2c00, 20);
+  transform: skew(1deg, 1deg);
+  z-index: 2;
+  animation: pulse-med 0.6s infinite alternate;
+
+  @media screen and (max-width: 900px) {
+    font-size: $zeta;
+    padding: 4px 10px;
+  }
+}
+
+.ninja-score-container {
+  position: fixed;
+  right: 70px;
+  top: 10px;
+}
+
+.ninja-score {
+  text-align: right;
+}
+
+.ninja-score-number {
+  font-size: $alpha;
+  font-family: $skranji;
+  text-shadow: 2px 2px 0 rgba(black, 0.2);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ninja-score-title {
+  font-size: $epsilon;
+  font-family: $skranji;
+  display: inline-block;
+  vertical-align: middle;
+  color: rgba(white, 0.5);
+  text-shadow: 1px 1px 0 rgba(black, 0.2);
+  margin-right: 5px;
+  line-height: 0.9;
+  text-transform: uppercase;
+
+  @media screen and (max-width: $medium) {
+    font-size: 8px;
+  }
+}
+
+.ninja-start-container {
+
+  &::before {
+    @extend %module-secondary-bg;
+    background-image: url(../img/games/ninja-pattern-bg.png);
+    background-size: 400px;
+    background-position: center;
+    background-repeat: repeat;
+
+    .mod1 & { background-color: $mod1-secondary; }
+    .mod2 & { background-color: $mod2-secondary; }
+    .mod3 & { background-color: $mod3-secondary; }
+    .mod4 & { background-color: $mod4-secondary; }
+    .mod5 & { background-color: $mod5-secondary; }
+    .mod6 & { background-color: $mod6-secondary; }
+    .mod7 & { background-color: $mod7-secondary; }
+    .mod8 & { background-color: $mod8-secondary; }
+  }
+
+  .game-start-logo {
+    margin-bottom: 30px;
+    height: 130px;
+
+    @media screen and ( max-width: $medium ) {
+      height: 90px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .game-start-help-img {
+    width: 90%;
+    height: auto;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule (.*)/$ index.html [L]
+RewriteRule ^(.*)\.html$ index.html [L] 

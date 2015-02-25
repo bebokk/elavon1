@@ -1,0 +1,290 @@
+//===============================================================================
+// STACKER GAME
+//===============================================================================
+.stacker-wrap {
+  @extend %module-secondary-bg;
+  background-image: url(../img/games/boxie-pattern-bg.png);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 200px;
+  overflow-y: auto;
+  text-align: center;
+  padding: 90px 50px 50px;
+  user-select: none; 
+
+  .mod1 & { background-color: $mod1-secondary; }
+  .mod2 & { background-color: $mod2-secondary; }
+  .mod3 & { background-color: $mod3-secondary; }
+  .mod4 & { background-color: $mod4-secondary; }
+  .mod5 & { background-color: $mod5-secondary; }
+  .mod6 & { background-color: $mod6-secondary; }
+  .mod7 & { background-color: $mod7-secondary; }
+  .mod8 & { background-color: $mod8-secondary; }
+
+  @media screen and ( max-width: $medium ) {
+    padding: 125px 20px 30px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    @extend %module-secondary-bg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @extend %module-secondary-bg-dark25;
+    @extend %module-secondary-color;
+    border: 3px solid;
+    -webkit-border-radius: 10px;
+    opacity: 0.6;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+  }
+}
+
+.stacker-score-container {
+  display: none;
+  
+  .game-score-logo {
+    height: 40px;
+    width: auto;
+  }
+
+  .mini-game-active & .game-score-logo {
+    @extend .tada;
+  }
+}
+
+.stacker-question-container {
+  text-align: center;
+  overflow: hidden;
+}
+
+.stacker-question {
+  @extend h1;
+  text-align: center;
+  font-weight: 700;
+  font-family: $montserrat;
+  line-height: 1;
+  letter-spacing: -2px;
+  padding: 0 50px 40px;
+  text-shadow: 2px 2px 0 rgba(black, 0.2);
+  margin-bottom: 0;
+
+  @media screen and ( max-width: $medium ) {
+    font-size: $alpha - 4px;
+    letter-spacing: -0.5px;
+    padding: 0 0 10px;
+  }
+
+  @media screen and ( max-width: $small ) {
+    font-size: $beta + 2px;
+  }
+}
+
+.stacker-subtitle {
+  font-size: $delta;
+  color: rgba(white, 0.6);
+  font-family: $montserrat;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 20px;
+  letter-spacing: -0.5px;
+
+  @media screen and (max-width: $medium) {
+    font-size: $zeta;
+    margin-bottom: 10px;
+    letter-spacing: 0;
+  }
+}
+
+.stacker-container {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+
+  .btn-block {
+    margin: 0 auto 60px;
+    font-family: $montserrat;
+
+    @media screen and ( max-width: $medium ) {
+      margin: 10px auto 20px;
+      padding: 10px 15px;
+      font-size: $epsilon;
+    }
+
+    @media screen and ( max-width: $small ) {
+      margin: 0 auto 20px;
+    }
+  }
+}
+
+.stacker-item-container {
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+
+  @media screen and ( max-width: $medium ) {
+    margin: 20px auto 10px;
+  }
+}
+
+.stacker-item {
+  display: block;
+  background-color: rgba(white, 0.98);
+  color: $ink;
+  padding: 10px 25px;
+  margin: -10px auto 0;
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  font-family: $montserrat;
+  font-size: $mega + 2px;
+  letter-spacing: -3.5px;
+  font-weight: 700;
+  box-shadow: 0 0 5px rgba(black, 0.4);
+  position: relative;
+  border-radius: 2px;
+  z-index: 1;
+
+  @media screen and ( max-width: $medium ) {
+    font-size: $alpha - 6px;
+    padding: 10px 30px;
+    letter-spacing: -2px;
+  }
+
+  @media screen and ( max-width: $small ) {
+    font-size: $beta;
+    max-width: 90%;
+    line-height: 1;
+  }
+
+  &:nth-of-type(even) {
+    transform: rotate(1deg);
+
+    &:hover {
+      transform: rotate(-1deg) scale(1.05);
+    }
+  }
+
+  &:nth-of-type(odd) {
+    left: -10px;
+    transform: rotate(-1deg);
+
+    &:hover {
+      transform: rotate(-1deg) scale(1.05);
+    }
+  }
+}
+
+.stacker-top, .stacker-btm {
+  @extend %module-secondary-color-dark25;
+  text-align: right;
+  font-size: $beta;
+  font-family: $montserrat;
+  opacity: 0.5;
+  letter-spacing: -1px;
+  position: absolute;
+  right: -50px;
+  padding-right: 20px;
+  width: 150%;
+  font-weight: 700;
+
+  @media screen and ( max-width: $medium ) {
+    letter-spacing: -2px;
+    position: relative;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  @media screen and ( max-width: $small ) {
+    font-size: $beta - 2px;
+  }
+}
+
+.stacker-top {
+  top: 100px;
+  border-bottom: 5px dotted;
+
+  @media screen and ( max-width: $medium ) {
+    border-bottom: none;
+    top: 0;
+  }
+}
+
+.stacker-btm {
+  bottom: 0;
+  border-top: 5px dotted;
+
+  @media screen and ( max-width: $medium ) {
+    bottom: 0;
+    border-top: none;
+  }
+}
+
+.stacker-start-container {
+
+  &::before {
+    @extend %module-secondary-bg;
+    background-image: url(../img/games/boxie-pattern-bg.png);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 200px;
+
+    .mod1 & { background-color: $mod1-secondary; }
+    .mod2 & { background-color: $mod2-secondary; }
+    .mod3 & { background-color: $mod3-secondary; }
+    .mod4 & { background-color: $mod4-secondary; }
+    .mod5 & { background-color: $mod5-secondary; }
+    .mod6 & { background-color: $mod6-secondary; }
+    .mod7 & { background-color: $mod7-secondary; }
+    .mod8 & { background-color: $mod8-secondary; }
+  }
+
+  .game-start-help-img {
+    width: 90%;
+    height: auto;
+    margin-top: 10px;
+  }
+}
+
+.as-sortable-item {
+  -ms-touch-action: none;
+  touch-action: none;
+  user-select: none; 
+}
+
+.as-sortable-item-handle {
+  cursor: move;
+  font-family: $montserrat;
+  letter-spacing: -4px;
+
+  @media screen and ( max-width: $medium ) {
+    letter-spacing: -2px;
+  }
+}
+
+.as-sortable-placeholder {}
+
+.as-sortable-drag {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+  // animation: shake 1.5s infinite;
+
+  .touch-device & {
+    animation: none;
+  }
+}
+
+.as-sortable-hidden {
+  display: none !important;
+}

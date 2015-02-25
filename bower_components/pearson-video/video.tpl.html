@@ -1,0 +1,38 @@
+<section class="slide-block slide-vid-block mod-secondary">
+  <div class="slide-block-inner vid-container vid-container-inactive vid-intro-unplayed active">
+
+    <aside ng-controller="videoContentCtrl as controller">
+      <videogular vg-theme="controller.config.theme" vg-complete="controller.onVideoComplete">
+
+        <div class="vid-player-container">
+          <vg-video vg-src="controller.config.sources" class="vid-player"></vg-video>
+        </div>
+
+        <vg-controls>
+          <div class="vid-intro-container" data-video-id="vid6-1">
+            <hgroup class="vid-intro-title">
+              <h4>Start Video</h4>
+              <h2>{{videoTitle}}</h2>
+            </hgroup>
+            <custom-intro-btn></custom-intro-btn>
+          </div>
+
+          <div class="vid-content-container">
+            <div class="vid-content-inner">
+              <custom-content></custom-content>
+            </div>
+            <div class="vid-controls" data-video-id="{{videoId}}">
+              <custom-play-pause></custom-play-pause>
+              <vg-scrubBar class="vid-scrubbar">
+                <vg-scrubbarcurrenttime class="vid-scrubbar-current"></vg-scrubbarcurrenttime>
+              </vg-scrubBar>
+              <custom-skip></custom-skip>
+            </div>
+          </div>
+        </vg-controls>
+
+      </videogular>
+    </aside>
+
+  </div>
+</section>

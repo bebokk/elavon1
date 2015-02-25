@@ -1,0 +1,305 @@
+//===============================================================================
+// MODULES
+//===============================================================================
+// Module primary text colours
+// @extend %module-primary-color;
+%module-primary-color {
+  .mod1 & { color: $mod1-primary; }
+  .mod2 & { color: $mod2-primary; }
+  .mod3 & { color: $mod3-primary; }
+  .mod4 & { color: $mod4-primary; }
+  .mod5 & { color: $mod5-primary; }
+  .mod6 & { color: $mod6-primary; }
+  .mod7 & { color: $mod7-primary; }
+  .mod8 & { color: $mod8-primary; }
+}
+
+// Module secondary text colours
+// @extend %module-primary-color-dark20;
+%module-primary-color-dark20 {
+  .mod1 & { color: darken($mod1-primary, 20); }
+  .mod2 & { color: darken($mod2-primary, 20); }
+  .mod3 & { color: darken($mod3-primary, 20); }
+  .mod4 & { color: darken($mod4-primary, 20); }
+  .mod5 & { color: darken($mod5-primary, 20); }
+  .mod6 & { color: darken($mod6-primary, 20); }
+  .mod7 & { color: darken($mod7-primary, 20); }
+  .mod8 & { color: darken($mod8-primary, 20); }
+}
+
+// Module secondary text colours
+// @extend %module-secondary-color;
+%module-secondary-color {
+  .mod1 & { color: $mod1-secondary; }
+  .mod2 & { color: $mod2-secondary; }
+  .mod3 & { color: $mod3-secondary; }
+  .mod4 & { color: $mod4-secondary; }
+  .mod5 & { color: $mod5-secondary; }
+  .mod6 & { color: $mod6-secondary; }
+  .mod7 & { color: $mod7-secondary; }
+  .mod8 & { color: $mod8-secondary; }
+}
+
+// Module secondary text colours
+// @extend %module-secondary-color-dark25;
+%module-secondary-color-dark25 {
+  .mod1 & { color: darken($mod1-secondary, 25); }
+  .mod2 & { color: darken($mod2-secondary, 25); }
+  .mod3 & { color: darken($mod3-secondary, 25); }
+  .mod4 & { color: darken($mod4-secondary, 25); }
+  .mod5 & { color: darken($mod5-secondary, 25); }
+  .mod6 & { color: darken($mod6-secondary, 25); }
+  .mod7 & { color: darken($mod7-secondary, 25); }
+  .mod8 & { color: darken($mod8-secondary, 25); }
+}
+
+// Module primary background colours
+// @extend %module-primary-bg;
+%module-primary-bg {
+  .mod1 & { background-color: $mod1-primary; }
+  .mod2 & { background-color: $mod2-primary; }
+  .mod3 & { background-color: $mod3-primary; }
+  .mod4 & { background-color: $mod4-primary; }
+  .mod5 & { background-color: $mod5-primary; }
+  .mod6 & { background-color: $mod6-primary; }
+  .mod7 & { background-color: $mod7-primary; }
+  .mod8 & { background-color: $mod8-primary; }
+}
+
+// @extend %module-primary-bg-light5;
+%module-primary-bg-light5 {
+  .mod1 & { background-color: lighten($mod1-primary, 5); }
+  .mod2 & { background-color: lighten($mod2-primary, 5); }
+  .mod3 & { background-color: lighten($mod3-primary, 5); }
+  .mod4 & { background-color: lighten($mod4-primary, 5); }
+  .mod5 & { background-color: lighten($mod5-primary, 5); }
+  .mod6 & { background-color: lighten($mod6-primary, 5); }
+  .mod7 & { background-color: lighten($mod7-primary, 5); }
+  .mod8 & { background-color: lighten($mod8-primary, 5); }
+}
+// @extend %module-primary-bg-light10;
+%module-primary-bg-light10 {
+  .mod1 & { background-color: lighten($mod1-primary, 10); }
+  .mod2 & { background-color: lighten($mod2-primary, 10); }
+  .mod3 & { background-color: lighten($mod3-primary, 10); }
+  .mod4 & { background-color: lighten($mod4-primary, 10); }
+  .mod5 & { background-color: lighten($mod5-primary, 10); }
+  .mod6 & { background-color: lighten($mod6-primary, 10); }
+  .mod7 & { background-color: lighten($mod7-primary, 10); }
+  .mod8 & { background-color: lighten($mod8-primary, 10); }
+}
+
+// @extend %module-primary-bg-dark5;
+%module-primary-bg-dark5 {
+  .mod1 & { background-color: darken($mod1-primary, 5); }
+  .mod2 & { background-color: darken($mod2-primary, 5); }
+  .mod3 & { background-color: darken($mod3-primary, 5); }
+  .mod4 & { background-color: darken($mod4-primary, 5); }
+  .mod5 & { background-color: darken($mod5-primary, 5); }
+  .mod6 & { background-color: darken($mod6-primary, 5); }
+  .mod7 & { background-color: darken($mod7-primary, 5); }
+  .mod8 & { background-color: darken($mod8-primary, 5); }
+}
+// @extend %module-primary-bg-dark10;
+%module-primary-bg-dark10 {
+  .mod1 & { background-color: darken($mod1-primary, 10); }
+  .mod2 & { background-color: darken($mod2-primary, 10); }
+  .mod3 & { background-color: darken($mod3-primary, 10); }
+  .mod4 & { background-color: darken($mod4-primary, 10); }
+  .mod5 & { background-color: darken($mod5-primary, 10); }
+  .mod6 & { background-color: darken($mod6-primary, 10); }
+  .mod7 & { background-color: darken($mod7-primary, 10); }
+  .mod8 & { background-color: darken($mod8-primary, 10); }
+}
+// @extend %module-primary-bg-dark15;
+%module-primary-bg-dark15 {
+  .mod1 & { background-color: darken($mod1-primary, 15); }
+  .mod2 & { background-color: darken($mod2-primary, 15); }
+  .mod3 & { background-color: darken($mod3-primary, 15); }
+  .mod4 & { background-color: darken($mod4-primary, 15); }
+  .mod5 & { background-color: darken($mod5-primary, 15); }
+  .mod6 & { background-color: darken($mod6-primary, 15); }
+  .mod7 & { background-color: darken($mod7-primary, 15); }
+  .mod8 & { background-color: darken($mod8-primary, 15); }
+}
+// @extend %module-primary-bg-dark25;
+%module-primary-bg-dark25 {
+  .mod1 & { background-color: darken($mod1-primary, 25); }
+  .mod2 & { background-color: darken($mod2-primary, 25); }
+  .mod3 & { background-color: darken($mod3-primary, 25); }
+  .mod4 & { background-color: darken($mod4-primary, 25); }
+  .mod5 & { background-color: darken($mod5-primary, 25); }
+  .mod6 & { background-color: darken($mod6-primary, 25); }
+  .mod7 & { background-color: darken($mod7-primary, 25); }
+  .mod8 & { background-color: darken($mod8-primary, 25); }
+}
+// @extend %module-primary-bg-dark35;
+%module-primary-bg-dark35 {
+  .mod1 & { background-color: darken($mod1-primary, 35); }
+  .mod2 & { background-color: darken($mod2-primary, 35); }
+  .mod3 & { background-color: darken($mod3-primary, 35); }
+  .mod4 & { background-color: darken($mod4-primary, 35); }
+  .mod5 & { background-color: darken($mod5-primary, 35); }
+  .mod6 & { background-color: darken($mod6-primary, 35); }
+  .mod7 & { background-color: darken($mod7-primary, 35); }
+  .mod8 & { background-color: darken($mod8-primary, 35); }
+}
+
+// Module secondary background colours
+// @extend %module-secondary-bg;
+%module-secondary-bg {
+  .mod1 & { background-color: $mod1-secondary; }
+  .mod2 & { background-color: $mod2-secondary; }
+  .mod3 & { background-color: $mod3-secondary; }
+  .mod4 & { background-color: $mod4-secondary; }
+  .mod5 & { background-color: $mod5-secondary; }
+  .mod6 & { background-color: $mod6-secondary; }
+  .mod7 & { background-color: $mod7-secondary; }
+  .mod8 & { background-color: $mod8-secondary; }
+}
+
+// @extend %module-secondary-bg-light5;
+%module-secondary-bg-light5 {
+  .mod1 & { background-color: lighten($mod1-secondary, 5); }
+  .mod2 & { background-color: lighten($mod2-secondary, 5); }
+  .mod3 & { background-color: lighten($mod3-secondary, 5); }
+  .mod4 & { background-color: lighten($mod4-secondary, 5); }
+  .mod5 & { background-color: lighten($mod5-secondary, 5); }
+  .mod6 & { background-color: lighten($mod6-secondary, 5); }
+  .mod7 & { background-color: lighten($mod7-secondary, 5); }
+  .mod8 & { background-color: lighten($mod8-secondary, 5); }
+}
+// @extend %module-secondary-bg-light10;
+%module-secondary-bg-light10 {
+  .mod1 & { background-color: lighten($mod1-secondary, 10); }
+  .mod2 & { background-color: lighten($mod2-secondary, 10); }
+  .mod3 & { background-color: lighten($mod3-secondary, 10); }
+  .mod4 & { background-color: lighten($mod4-secondary, 10); }
+  .mod5 & { background-color: lighten($mod5-secondary, 10); }
+  .mod6 & { background-color: lighten($mod6-secondary, 10); }
+  .mod7 & { background-color: lighten($mod7-secondary, 10); }
+  .mod8 & { background-color: lighten($mod8-secondary, 10); }
+}
+
+// @extend %module-secondary-bg-dark5;
+%module-secondary-bg-dark5 {
+  .mod1 & { background-color: darken($mod1-secondary, 5); }
+  .mod2 & { background-color: darken($mod2-secondary, 5); }
+  .mod3 & { background-color: darken($mod3-secondary, 5); }
+  .mod4 & { background-color: darken($mod4-secondary, 5); }
+  .mod5 & { background-color: darken($mod5-secondary, 5); }
+  .mod6 & { background-color: darken($mod6-secondary, 5); }
+  .mod7 & { background-color: darken($mod7-secondary, 5); }
+  .mod8 & { background-color: darken($mod8-secondary, 5); }
+}
+// @extend %module-secondary-bg-dark10;
+%module-secondary-bg-dark10 {
+  .mod1 & { background-color: darken($mod1-secondary, 10); }
+  .mod2 & { background-color: darken($mod2-secondary, 10); }
+  .mod3 & { background-color: darken($mod3-secondary, 10); }
+  .mod4 & { background-color: darken($mod4-secondary, 10); }
+  .mod5 & { background-color: darken($mod5-secondary, 10); }
+  .mod6 & { background-color: darken($mod6-secondary, 10); }
+  .mod7 & { background-color: darken($mod7-secondary, 10); }
+  .mod8 & { background-color: darken($mod8-secondary, 10); }
+}
+// @extend %module-secondary-bg-dark15;
+%module-secondary-bg-dark15 {
+  .mod1 & { background-color: darken($mod1-secondary, 15); }
+  .mod2 & { background-color: darken($mod2-secondary, 15); }
+  .mod3 & { background-color: darken($mod3-secondary, 15); }
+  .mod4 & { background-color: darken($mod4-secondary, 15); }
+  .mod5 & { background-color: darken($mod5-secondary, 15); }
+  .mod6 & { background-color: darken($mod6-secondary, 15); }
+  .mod7 & { background-color: darken($mod7-secondary, 15); }
+  .mod8 & { background-color: darken($mod8-secondary, 15); }
+}
+// @extend %module-secondary-bg-dark25;
+%module-secondary-bg-dark25 {
+  .mod1 & { background-color: darken($mod1-secondary, 25); }
+  .mod2 & { background-color: darken($mod2-secondary, 25); }
+  .mod3 & { background-color: darken($mod3-secondary, 25); }
+  .mod4 & { background-color: darken($mod4-secondary, 25); }
+  .mod5 & { background-color: darken($mod5-secondary, 25); }
+  .mod6 & { background-color: darken($mod6-secondary, 25); }
+  .mod7 & { background-color: darken($mod7-secondary, 25); }
+  .mod8 & { background-color: darken($mod8-secondary, 25); }
+}
+// @extend %module-secondary-bg-dark30;
+%module-secondary-bg-dark30 {
+  .mod1 & { background-color: darken($mod1-secondary, 30); }
+  .mod2 & { background-color: darken($mod2-secondary, 30); }
+  .mod3 & { background-color: darken($mod3-secondary, 30); }
+  .mod4 & { background-color: darken($mod4-secondary, 30); }
+  .mod5 & { background-color: darken($mod5-secondary, 30); }
+  .mod6 & { background-color: darken($mod6-secondary, 30); }
+  .mod7 & { background-color: darken($mod7-secondary, 30); }
+  .mod8 & { background-color: darken($mod8-secondary, 30); }
+}
+
+// @extend %module-secondary-bg-dark35;
+%module-secondary-bg-dark35 {
+  .mod1 & { background-color: darken($mod1-secondary, 35); }
+  .mod2 & { background-color: darken($mod2-secondary, 35); }
+  .mod3 & { background-color: darken($mod3-secondary, 35); }
+  .mod4 & { background-color: darken($mod4-secondary, 35); }
+  .mod5 & { background-color: darken($mod5-secondary, 35); }
+  .mod6 & { background-color: darken($mod6-secondary, 35); }
+  .mod7 & { background-color: darken($mod7-secondary, 35); }
+  .mod8 & { background-color: darken($mod8-secondary, 35); }
+}
+
+// Set Module classes
+body.mod-primary {
+  &.mod1 { background-color: $mod1-primary; }
+  &.mod2 { background-color: $mod2-primary; }
+  &.mod3 { background-color: $mod3-primary; }
+  &.mod4 { background-color: $mod4-primary; }
+  &.mod5 { background-color: $mod5-primary; }
+  &.mod6 { background-color: $mod6-primary; }
+  &.mod7 { background-color: $mod7-primary; }
+  &.mod8 { background-color: $mod8-primary; }
+}
+
+body.mod-secondary {
+  &.mod1 { background-color: $mod1-secondary; }
+  &.mod2 { background-color: $mod2-secondary; }
+  &.mod3 { background-color: $mod3-secondary; }
+  &.mod4 { background-color: $mod4-secondary; }
+  &.mod5 { background-color: $mod5-secondary; }
+  &.mod6 { background-color: $mod6-secondary; }
+  &.mod7 { background-color: $mod7-secondary; }
+  &.mod8 { background-color: $mod8-secondary; }
+}
+
+.mod-primary, .slide-block.mod-primary { 
+  @extend %module-primary-bg; 
+}
+.mod-primary-dark5, .slide-block.mod-primary-dark5 { 
+  @extend %module-primary-bg-dark5; 
+}
+.mod-primary-dark10, .slide-block.mod-primary-mod10 { 
+  @extend %module-primary-bg-dark10; 
+}
+.mod-primary-light5, .slide-block.mod-primary-light5 { 
+  @extend %module-primary-bg-light; 
+}
+.mod-primary-light10, .slide-block.mod-primary-light10 { 
+  @extend %module-primary-bg-light; 
+}
+
+.mod-secondary, .slide-block.mod-secondary { 
+  @extend %module-secondary-bg; 
+}
+.mod-secondary-dark5, .slide-block.mod-secondary-dark5 { 
+  @extend %module-secondary-bg-dark5; 
+}
+.mod-secondary-dark10, .slide-block.mod-secondary-dark10 { 
+  @extend %module-secondary-bg-dark10; 
+}
+.mod-secondary-light5, .slide-block.mod-secondary-light5 { 
+  @extend %module-secondary-bg-light5; 
+}
+.mod-secondary-light10, .slide-block.mod-secondary-light10 { 
+  @extend %module-secondary-bg-light10; 
+}

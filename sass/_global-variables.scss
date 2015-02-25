@@ -1,0 +1,78 @@
+//===============================================================================
+// VARIABLES
+//===============================================================================
+// Colours
+$paper: white;
+$ink: #263238;
+
+$primary: $ink;
+
+$grey: #455a64;
+$light-grey: #cfd8dc;
+
+$cyan: #00bcd4;
+$violet: #7b1fa2;
+$purple: #673ab7;
+$pink: #c40559;
+$blue: #0d47a1;
+$teal: #00838f;
+$claret: #ab1162;
+$lime: #a1dd00;
+$blood: #cd1618;
+$turq: #0082ae;
+$red: #f43d30;
+$green: #79b800;
+
+
+// Module Colours
+// Module 1
+$mod1-primary: $cyan;
+$mod1-secondary: $violet;
+
+// Module 2
+$mod2-primary: $pink;
+$mod2-secondary: $teal;
+
+// Module 3
+$mod3-primary: $purple;
+$mod3-secondary: $teal;
+
+// Module 4
+$mod4-primary: $blue;
+$mod4-secondary: $pink;
+
+// Module 5
+$mod5-primary: $blood;
+$mod5-secondary: $purple;
+
+// Module 6
+$mod6-primary: $claret;
+$mod6-secondary: $blue;
+
+// Module 7
+$mod7-primary: $violet;
+$mod7-secondary: $blood;
+
+// Module 8
+$mod8-primary: $teal;
+$mod8-secondary: $claret;
+
+
+// Typography
+$base-font-size: 14px;
+$body-weight: 400;
+$roboto: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; 
+$montserrat: 'Montserrat', $roboto; 
+$skranji: 'Skranji', $montserrat; 
+$rajdhani: 'Rajdhani', $montserrat; 
+$karla: 'Karla', $roboto; 
+
+$tera: 86px;
+$giga: 60px;
+$mega: 48px;
+$alpha: 36px;
+$beta: 24px;
+$gamma: 22px;
+$delta: 16px;
+$epsilon: 14px;
+$zeta: 12px;

@@ -1,0 +1,27 @@
+{
+  "name": "pearson.video-porpcorn",
+  "main": "./dist/pearson.video-porpcorn.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "gulpfile.js",
+    "example.html",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "angular": "~1.3.3",
+    "videogular": "~0.7.1",
+    "videogular-controls": "~0.7.2"
+  },
+  "homepage": "https://github.com/pebblecode/pearson-video",
+  "_release": "99591e16f5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "99591e16f5c991f64d76eca9b8c625f72082d758"
+  },
+  "_source": "git@github.com:pebblecode/pearson-video.git",
+  "_target": "master",
+  "_originalSource": "git@github.com:pebblecode/pearson-video.git"
+}

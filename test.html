@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Slider - Range with fixed maximum</title>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+</head>
+<body>
+ <div ng-app="" ng-controller="personController">
+
+<button ng-click="toggle()">Toggle</button>
+
+<p ng-hide="myVar">
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+</p>
+
+</div>
+
+<script>
+function personController($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+    $scope.myVar = false;
+    $scope.toggle = function() {
+
+        alert('test');
+        $scope.myVar = !$scope.myVar;
+    };
+}
+</script> 
+</body>
+</html>

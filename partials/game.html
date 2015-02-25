@@ -1,0 +1,25 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class="container">
+				<div ng-include="'partials/elements/top_menu.html'"></div>
+			</div>
+		</nav>
+	</div>
+</div>
+<div class="top_subpage"></div>
+<div class="container game">
+	<div class="game1" ng-controller="game1">		
+		<div class="game1_0">
+			<button class="btn btn-default" type="submit" ng-click="shuffle()">shuffle</button>
+			<button class="btn btn-default" type="submit" ng-click="take()">take from the top</button>
+		</div>
+		<div class="game1_2">
+			{{deck_shuffled}}
+		</div>
+		<div class="game1_1" id="game1_1"><img src="images/{{selected_card}}" /></div>
+		<div class="game1_2" id="game1_2">
+			{{list1}}
+		</div>
+	</div>
+</div>

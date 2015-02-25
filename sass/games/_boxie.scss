@@ -1,0 +1,372 @@
+//===============================================================================
+// BOXIE GAME
+//===============================================================================
+.boxie-wrap {
+  @extend %module-primary-bg;
+  background-image: url(../img/games/boxie-pattern-bg.png);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 100%;
+  padding: 30px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .mod1 & { background-color: $mod1-primary; }
+  .mod2 & { background-color: $mod2-primary; }
+  .mod3 & { background-color: $mod3-primary; }
+  .mod4 & { background-color: $mod4-primary; }
+  .mod5 & { background-color: $mod5-primary; }
+  .mod6 & { background-color: $mod6-primary; }
+  .mod7 & { background-color: $mod7-primary; }
+  .mod8 & { background-color: $mod8-primary; }
+
+  @media screen and (max-width: $small) {
+    padding: 20px 0;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    @extend %module-primary-bg;
+    -webkit-border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @extend %module-primary-bg-dark25;
+    @extend %module-primary-color;
+    border: 3px solid;
+    -webkit-border-radius: 10px;
+    opacity: 0.6;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+  }
+}
+
+.boxie-loader {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.boxie-question-container {
+  padding: 60px 20px 0;
+
+  @media screen and (max-width: $medium) {
+    padding-top: 90px;
+    padding-bottom: 10px;
+  }
+}
+
+.boxie-question {
+  @extend h1;
+  text-align: center;
+  text-shadow: 2px 2px 0 rgba(black, 0.2);
+  font-family: $montserrat;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -2px;
+
+  @media screen and (max-width: $medium) {
+    font-size: $alpha - 4px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: $beta;
+    margin-bottom: 0;
+  }
+}
+
+.boxie-subtitle {
+  font-size: $delta;
+  color: rgba(white, 0.6);
+  font-family: $montserrat;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 20px;
+
+  @media screen and (max-width: $medium) {
+    font-size: $zeta;
+    margin-bottom: 10px;
+  }
+}
+
+.boxie-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.boxie-phold {
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: table;
+  width: 95%;
+  text-align: center;
+  overflow-x: hidden;
+
+  @media screen and (max-width: $medium) {
+    padding: 0 20px 10px 0;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 0 20px 0 0;
+  }
+}
+
+.boxie-phold-item {
+  @extend %module-secondary-bg;
+  background: repeating-linear-gradient(-45deg,
+              rgba($ink, 0.18) 0px,
+              rgba($ink, 0.18) 2%,
+              rgba($ink, 0.22) 2%,
+              rgba($ink, 0.22) 4%) transparent;
+  display: inline-block;
+  min-height: 75px;
+  width: 100%;
+  line-height: 1.1;
+  max-width: 400px;
+  transform: rotate(1deg);
+  position: relative;
+  margin: 15px 10px;
+  border: 4px solid white;
+  border-radius: 5px;
+  vertical-align: top;
+  box-shadow: 1px 1px 5px rgba(black, 0.4);
+
+  .mod1 & { background-color: $mod1-secondary; }
+  .mod2 & { background-color: $mod2-secondary; }
+  .mod3 & { background-color: $mod3-secondary; }
+  .mod4 & { background-color: $mod4-secondary; }
+  .mod5 & { background-color: $mod5-secondary; }
+  .mod6 & { background-color: $mod6-secondary; }
+  .mod7 & { background-color: $mod7-secondary; }
+  .mod8 & { background-color: $mod8-secondary; }
+
+  @media screen and (max-width: $medium) {
+    margin: 5px 10px 5px;
+    min-height: 60px;
+    min-width: 60%;
+    width: auto;
+
+    &:nth-of-type(even) {
+      left: 30px;
+
+      @media screen and (max-width: $small) {
+        left: 0;
+      }
+    }
+  }
+
+  &:nth-of-type(even) {
+    transform: rotate(-1deg);
+  }
+
+  .boxie-answers-item {
+    background-color: white;
+    color: $ink;
+    width: 100%;
+    font-weight: 700;
+    transform: rotate(0deg);
+    min-height: 67px;
+    font-size: $beta;
+    margin: 0;
+    box-shadow: none;
+    padding-top: 18px;
+    border-radius: 0;
+    box-shadow: 0 0 0 2px white;
+    cursor: default;
+
+    @media screen and (max-width: $medium) {
+      min-height: 50px;
+      padding-top: 10px;
+      font-size: $gamma;
+    }
+  }
+}
+
+.boxie-phold-inner {
+  height: auto;
+  position: absolute;
+  color: white;
+  text-shadow: 2px 2px 0 rgba(black, 0.2);
+  font-size: $beta;
+  font-family: $montserrat;
+  font-weight: 700;
+  position: relative;
+  border-radius: 2px;
+  width: 100%;
+  padding: 20px 10px;
+  text-align: center;
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+
+  @media screen and (max-width: $small) {
+    padding: 10px;
+    font-size: $gamma - 2px;
+  }
+}
+
+.boxie-answers-container {
+  position: relative;
+  display: table;
+  margin: 40px auto 30px;
+  padding: 10px 20px;
+  max-width: 90%;
+  background-color: rgba(white, 0.3);
+  border-radius: 5px;
+
+  @media screen and (max-width: $medium) {
+    padding: 10px 5px;
+    margin: 15px auto;
+    max-width: 90%;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 10px 5px 5px;
+  }
+}
+
+.boxie-answers {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 0;
+
+  @media screen and (max-width: $small) {
+    padding-top: 5px;
+  }
+
+  &:hover {
+
+    .boxie-answers-item {
+      transform: scale(0.95) rotate(2deg);
+      background-color: rgba(white, 0.95);
+
+      &:nth-of-type(even) {
+        transform: scale(0.95) rotate(-2deg);
+      }
+
+      &:hover {
+        transform: scale(1.2) rotate(2deg);
+        background-color: white;
+
+        &:nth-of-type(even) {
+          transform: scale(1.2) rotate(-2deg);
+        }
+      }
+    }
+  }
+}
+
+.boxie-answers-item {
+  background-color: white;
+  box-shadow: 0 0 5px rgba(black, 0.4);
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  transform: rotate(2deg);
+  position: relative;
+  border-radius: 2px;
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+
+  &:nth-of-type(even) {
+    transform: rotate(-2deg);
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 4px 12px;
+  }
+}
+
+.boxie-answers-inner {
+  font-family: $montserrat;
+  font-weight: 700;
+  font-size: $delta;
+  text-align: center;
+  color: $ink;
+
+  @media screen and (max-width: $small) {
+    font-size: $delta - 2px;
+  }
+}
+
+
+.boxie-start-container {
+  
+  &::before {
+    @extend %module-primary-bg;
+    background-image: url(../img/games/boxie-pattern-bg.png);
+    background-position: center;
+    background-repeat: repeat;
+
+    .mod1 & { background-color: $mod1-primary; }
+    .mod2 & { background-color: $mod2-primary; }
+    .mod3 & { background-color: $mod3-primary; }
+    .mod4 & { background-color: $mod4-primary; }
+    .mod5 & { background-color: $mod5-primary; }
+    .mod6 & { background-color: $mod6-primary; }
+    .mod7 & { background-color: $mod7-primary; }
+    .mod8 & { background-color: $mod8-primary; }
+  }
+
+  .game-start {
+    &::-webkit-scrollbar-track {
+      @extend %module-primary-bg-dark15;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical, &::-webkit-scrollbar-thumb:horizontal {
+      @extend %module-primary-bg-dark25;
+    }
+  }
+  .game-start-block {
+    @extend %module-secondary-bg;
+
+    .mod1 & { background-color: $mod1-secondary; }
+    .mod2 & { background-color: $mod2-secondary; }
+    .mod3 & { background-color: $mod3-secondary; }
+    .mod4 & { background-color: $mod4-secondary; }
+    .mod5 & { background-color: $mod5-secondary; }
+    .mod6 & { background-color: $mod6-secondary; }
+    .mod7 & { background-color: $mod7-secondary; }
+    .mod8 & { background-color: $mod8-secondary; }
+  }
+
+  .game-start-btn {
+    &:hover {
+      @extend %module-secondary-bg-light5;
+    }
+  }
+
+  .game-start-help {
+    @extend %module-secondary-bg-dark5;
+  }
+
+  .game-start-logo {
+    margin-bottom: 40px;
+    height: 110px;
+
+    @media screen and ( max-width: $medium ) {
+      height: 70px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .game-start-help-img {
+    width: 100%;
+    height: auto;
+  }
+}

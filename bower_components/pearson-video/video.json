@@ -1,0 +1,39 @@
+{
+    "sequence": [
+        {
+            "start": 0,
+            "end": 10.5,
+            "content": "<h2>Accident Investigation</h2>Detailed analysis of previous accident and incident data can inform how to make your workplace safer."
+        },
+        {
+            "start": 10.5,
+            "end": 25,
+            "content": "<h2>Common Causes</h2>Injuries, ill health and incidents can have multiple causes. The immediate cause may be a human or technical failure, but these are commonly caused by failures in management control. "
+        },
+        {
+            "start": 25,
+            "end": 36,
+            "content": "<h2>Accident Prevention</h2>When an injury, work-related illness or incident occurs you should do everything possible to discover the <strong>underlying</strong> cause to prevent it from happening in the future."
+        },
+        {
+            "start": 36,
+            "end": 45,
+            "content": "<h2>Other Reasons</h2>In addition to identify the cause there are other reasons to investigate accidents and incidents."
+        },
+        {
+            "start": 36,
+            "end": 80,
+            "content": "<h2>Ways to Prevent Accidents</h2><ul><li>Collect information to report to the enforcing authority</li><li>Collect information needed for an insurance claim or legal proceedings</li><li>Quantify the cost of accidents for the business</li><li>Generate statistics to track performance</li></ul>"
+        },
+        {
+            "start": 80,
+            "end": 89,
+            "content": "<h2>Remember</h2>If you only investigate as far as the immediate causes, there’s a much higher likelihood that it will happen again."
+        },
+        {
+            "start": 89,
+            "end": 96,
+            "content": "<h2>Indentify the Root Cause</h2>Investigation is not about attributing blame, it’s about identifying the root cause to prevent a reoccurrence."
+        }
+    ]
+}

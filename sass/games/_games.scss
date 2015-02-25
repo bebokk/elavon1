@@ -1,0 +1,938 @@
+//===============================================================================
+// GAME BASE
+//===============================================================================
+.game-wrap {
+  display: block;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  position: fixed;
+  margin: 0;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+} 
+
+.game-start-container {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  text-align: center;
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and ( max-width: $medium ) {
+    overflow: auto;
+  }
+
+  &::before {
+    @extend %module-primary-bg;
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+    opacity: 0.95;
+
+    .touch-device & {
+      opacity: 0.98;
+    }
+  }
+}
+
+.game-start {
+  overflow: visible;
+  padding: 100px 50px 50px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media screen and ( max-width: 1000px ) {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    padding: 130px 40px 100px;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    position: relative;
+    height: 100%;
+    
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 120px 20px 90px;
+    margin-bottom: 90px;
+  }
+
+  .mod-primary {
+    &::-webkit-scrollbar-track {
+      @extend %module-primary-bg-dark15;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical, &::-webkit-scrollbar-thumb:horizontal {
+      @extend %module-primary-bg-dark30;
+    }
+  }
+
+  .mod-secondary {
+    &::-webkit-scrollbar-track {
+      @extend %module-secondary-bg-dark15;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical, &::-webkit-scrollbar-thumb:horizontal {
+      @extend %module-secondary-bg-dark30;
+    }
+  }
+}
+
+.game-start-inner {
+  display: block;
+  max-width: 800px;
+}
+
+.game-start-block-container {
+  display: flex;
+
+  @media screen and ( max-width: $medium ) {
+    display: block;
+    position: relative;
+  }
+}
+
+.game-start-logo {
+  animation: flashin 1.5s;
+  height: 90px;
+  width: auto;
+  display: table;
+  margin: 0 auto 40px;
+
+  @media screen and ( max-width: $medium ) {
+    height: 60px;
+    animation: none;
+    margin-bottom: 30px;
+  }
+}
+
+.game-start-block {
+  @extend %module-primary-bg;
+  display: table-cell;
+  vertical-align: top;
+  box-shadow: inset 0 0 0 1px rgba(white, 0.2), 0 0 5px rgba(black, 0.4);
+  padding: 0;
+  position: relative;
+
+  .mod1 & { background-color: $mod1-primary; }
+  .mod2 & { background-color: $mod2-primary; }
+  .mod3 & { background-color: $mod3-primary; }
+  .mod4 & { background-color: $mod4-primary; }
+  .mod5 & { background-color: $mod5-primary; }
+  .mod6 & { background-color: $mod6-primary; }
+  .mod7 & { background-color: $mod7-primary; }
+  .mod8 & { background-color: $mod8-primary; }
+
+  @media screen and ( max-width: $medium ) {
+    width: 100%;
+    display: block;
+    float: none;
+    animation: none;
+    margin-bottom: 10px;
+  }
+
+  &.col-1-3 {
+    margin-left: 10px;
+    width: calc(33% - 10px);
+
+    @media screen and ( max-width: $medium ) {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}
+
+.game-start-block-title {
+  font-family: $montserrat;
+  text-transform: uppercase;
+  font-size: $beta;
+  margin-bottom: 0;
+  padding: 20px 20px 5px;
+  font-weight: 700;
+  text-shadow: 1px 2px 0 rgba(black, 0.2);
+}
+
+.game-start-block-text {
+  text-shadow: 1px 1px 0 rgba(black, 0.2);
+  font-size: $delta - 1px;
+  line-height: 1.3;
+  margin-bottom: 0;
+  padding: 0 20px 10px;
+}
+
+.game-start-help {
+  @extend %module-primary-bg-dark5;
+  animation: bounceup 2s;
+  text-align: center;
+  transition: 0.2s;
+
+  @media screen and ( max-width: $medium ) {
+    animation: none;
+    position: relative;
+    top: 90px;
+  }
+
+  @media screen and ( max-width: $small ) {
+    top: 80px;
+  }
+}
+
+.game-start-help-title {
+  letter-spacing: -1px;
+  margin: 20px 20px 0 20px;
+}
+
+.game-start-help-img {
+  display: table;
+  margin: 20px auto 0;
+  height: 150px;
+  width: auto;
+}
+
+.game-start-btn {
+  animation: bounceup 1.5s, pulse 1s infinite alternate;
+  text-align: center;
+  transition: 0.2s;
+  background-image: url(../img/games/game-start-logo.svg);
+  background-position: bottom 15px right 15px;
+  background-repeat: no-repeat;
+  background-size: 200px;
+
+  @media screen and ( max-width: 800px ) {
+    background-size: 170px;
+  }
+
+  @media screen and ( max-width: 700px ) {
+    background-size: 130px;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    background-image: url(../img/games/game-start-horiz-logo.svg);
+    background-position: center 25px;
+    background-size: 260px;
+    height: 80px;
+    animation: none;
+    position: absolute;
+    top: 0;
+  }
+
+  @media screen and ( max-width: $small ) {
+    background-size: 180px;
+    height: 70px;
+  }
+
+  &:hover {
+    @extend %module-primary-bg-light5;
+  }
+}
+
+
+// Game End Modal
+.game-end-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  z-index: 97;
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+
+  display: none;
+
+  @media screen and ( max-width: $medium ) {
+    overflow: auto;
+    height: 100%;
+  }
+
+  &::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: -1;
+    opacity: 0.95;
+    background-color: $grey;
+
+    .touch-device & {
+      opacity: 0.98;
+    }
+  }
+}
+
+.game-end {
+  overflow: visible;
+  padding: 80px 50px 50px;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media screen and ( max-width: $medium ) {
+    padding: 130px 40px 110px;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    overflow: visible;
+    position: relative;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 125px 20px 30px;
+    margin-bottom: 70px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: darken($grey, 5);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: darken($grey, 15);
+  }
+}
+
+.game-end-inner {
+  display: block;
+  max-width: 800px;
+}
+
+.game-end-block-container {
+  display: flex;
+
+  @media screen and ( max-width: $medium ) {
+    display: block;
+    position: relative;
+  }
+}
+
+.game-end-logo {
+  animation: flashin 1.5s;
+  height: 90px;
+  width: 100%;
+  display: table;
+  margin: 0 auto 60px;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media screen and ( max-width: $medium ) {
+    height: 55px;
+    animation: none;
+    margin-bottom: 25px;
+    background-size: 280px;
+  }
+
+  .game-fail & {
+    background-image: url(../img/games/game-incorrect-logo.svg);
+  }
+
+  .game-pass & {
+    background-image: url(../img/games/game-correct-logo.svg);
+    background-size: 450px;
+    margin-bottom: 50px;
+
+    @media screen and ( max-width: $medium ) {
+      background-size: 250px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.game-end-block {
+  background-color: lighten($grey, 20);
+  display: table-cell;
+  vertical-align: top;
+  box-shadow: inset 0 0 0 1px rgba(white, 0.2), 0 0 5px rgba(black, 0.4);
+  padding: 20px 10px 10px;
+  position: relative;
+
+  @media screen and ( max-width: $medium ) {
+    width: 100%;
+    display: block;
+    float: none;
+    animation: none;
+    margin-bottom: 10px;
+  }
+
+  &.col-1-3 {
+    margin-right: 10px;
+    width: calc(33% - 10px);
+
+    &:first-child {
+      margin-left: 10px;
+
+      @media screen and ( max-width: $medium ) {
+        margin-left: 0;
+      }
+    }
+
+    @media screen and ( max-width: $medium ) {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}
+
+.game-end-block-title {
+  font-family: $montserrat;
+  text-transform: uppercase;
+  font-size: $beta - 6px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 0 rgba(black, 0.2);
+
+  @media screen and ( max-width: $medium ) {
+    margin-bottom: 15px;
+  }
+}
+
+.game-end-progress {
+  animation: bounceup 1.5s;
+  margin-right: 10px;
+  width: calc(66% - 10px);
+
+  @media screen and ( max-width: $medium ) {
+    animation: none;
+    position: relative;
+    top: 90px;
+    padding-bottom: 10px;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  @media screen and ( max-width: $small ) {
+    top: 80px;
+  }
+}
+
+.game-end-progress-item {
+  display: block;
+  padding: 10px 5px;
+  margin-bottom: 4px;
+  border: 4px solid rgba($grey, 0.2);
+  min-height: 190px;
+  font-family: $montserrat;
+  font-size: 170px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 3px 3px 0 rgba(black, 0.2);
+  line-height: 1;
+  margin-bottom: 0;
+  display: block;
+
+  @media screen and ( max-width: $medium ) {
+    width: 100%;
+    min-height: 100px;
+    padding-top: 10px;
+    margin-right: 1%;
+    font-size: 120px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.game-end-score {
+  animation: bounceup 1.5s;
+  text-align: center;
+  background-position: center 65%;
+  background-repeat: no-repeat;
+  background-size: 300px;
+
+  .game-pass & {
+    background-color: $green;
+    background-image: url(../img/games/pass-stamp.svg);
+  }
+
+  .game-fail & {
+    background-color: $red;
+    background-image: url(../img/games/fail-stamp.svg);
+  }
+
+  @media screen and ( max-width: $medium ) {
+    animation: none;
+    position: relative;
+    top: 90px;
+  }
+
+  @media screen and ( max-width: $small ) {
+    top: 80px;
+  }
+}
+
+.game-end-score-item {
+  @extend .game-end-progress-item;
+  min-height: 197px;
+  border-color: rgba(black, 0.1);
+  background-position: center;
+  background-size: 180px;
+  background-repeat: no-repeat;
+
+  .game-pass & {
+    background-image: url(../img/games/pass-logo.svg);
+  }
+
+  .game-fail & {
+    background-image: url(../img/games/fail-logo.svg);
+  }
+
+  @media screen and ( max-width: 900px ) {
+    background-size: 130px;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    background-size: 200px;
+    min-height: 150px;
+  }
+}
+
+.game-end-btn {
+  @extend %module-primary-bg;
+  animation: bounceup 1.5s, pulse 1s infinite alternate;
+  text-align: center;
+  transition: 0.2s;
+  background-image: url(../img/games/game-next-logo.svg);
+  background-position: bottom 15px right 15px;
+  background-repeat: no-repeat;
+  background-size: 200px;
+
+  .mod1 & { background-color: $mod1-primary; }
+  .mod2 & { background-color: $mod2-primary; }
+  .mod3 & { background-color: $mod3-primary; }
+  .mod4 & { background-color: $mod4-primary; }
+  .mod5 & { background-color: $mod5-primary; }
+  .mod6 & { background-color: $mod6-primary; }
+  .mod7 & { background-color: $mod7-primary; }
+  .mod8 & { background-color: $mod8-primary; }
+
+  .last-game & {
+    background-image: url(../img/games/game-finish-logo.svg);
+    background-position: bottom 20px right 20px;
+    
+    @media screen and ( max-width: $medium ) {
+      background-size: 130px;
+    }
+  }
+
+  @media screen and ( max-width: 900px ) {
+    background-size: 170px;
+  }
+
+  @media screen and ( max-width: 750px ) {
+    background-size: 130px;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    background-image: url(../img/games/game-next-horiz-logo.svg);
+    background-position: center 25px;
+    background-size: 260px;
+    height: 80px;
+    animation: none;
+    position: absolute;
+    top: 0;
+  }
+
+  @media screen and ( max-width: $small ) {
+    background-size: 180px;
+    height: 70px;
+  }
+
+  &:hover {
+    @extend %module-primary-bg-light5;
+  }
+}
+
+.game-finish-btn {
+  @extend %module-secondary-bg;
+
+  .mod1 & { background-color: $mod1-secondary; }
+  .mod2 & { background-color: $mod2-secondary; }
+  .mod3 & { background-color: $mod3-secondary; }
+  .mod4 & { background-color: $mod4-secondary; }
+  .mod5 & { background-color: $mod5-secondary; }
+  .mod6 & { background-color: $mod6-secondary; }
+  .mod7 & { background-color: $mod7-secondary; }
+  .mod8 & { background-color: $mod8-secondary; }
+
+  &:hover {
+    @extend %module-secondary-bg-light5;
+  }
+
+  .game-start-btn-img {
+    width: 180px;
+  }
+}
+
+// Fast Track End
+.body-ft-end {
+  background-color: lighten($ink, 15);
+  background-image: url(../img/games/cubix-pattern-bg.png);
+  background-repeat: repeat;
+  background-size: 300px;
+  overflow-x: hidden;
+
+  &.ft-pass {
+    background-color: $green;
+  }
+
+  &.ft-fail {
+    background-color: $red;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    overflow: auto;
+  }
+}
+
+.ft-fail-container, .ft-pass-container {
+  display: none;
+}
+
+.ft-fail .ft-fail-container, .ft-pass .ft-pass-container {
+  display: block;
+}
+
+.ft-end {
+  @extend .game-end;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  @media screen and ( max-width: $medium ) {
+    padding-top: 0;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    padding: 130px 40px 40px;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    overflow: auto;
+    position: relative;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 125px 20px 30px;
+    margin-bottom: 70px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: darken($grey, 5);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: darken($grey, 15);
+  }
+}
+
+.ft-end-inner {
+  @extend .game-end-inner;
+}
+
+.ft-end-block-container {
+  @extend .game-end-block-container;
+
+  @media screen and ( max-width: $medium ) {
+    display: block;
+    position: relative;
+  }
+}
+
+.ft-end-block {
+  @extend .game-end-block;
+  min-height: 220px;
+
+  @media screen and ( max-width: $medium ) {
+    width: 100%;
+    display: block;
+    float: none;
+    animation: none;
+    margin-bottom: 10px;
+  }
+}
+
+.ft-end-score {
+  animation: bounceup 2s;
+  width: calc(50% - 10px);
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-size: 450px;
+  background-position: center;
+
+  @media screen and ( max-width: $medium ) {
+    animation: none;
+    position: relative;
+    top: 90px;
+    padding-bottom: 15px;
+    margin-right: 0;
+    min-height: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  @media screen and ( max-width: $small ) {
+    top: 90px;
+  }
+
+  .ft-pass & {
+    background-image: url(../img/games/pass-stamp.svg);
+  }
+
+  .ft-fail & {
+    background-image: url(../img/games/fail-stamp.svg);
+  }
+}
+
+.ft-end-block-title {
+  @extend .game-end-block-title;
+  margin-bottom: 15px;
+}
+
+.ft-end-btn {
+  @extend .game-end-btn;
+
+  .ft-pass-container &.ft-end-block {
+    animation: bounceup 2s;
+    background-color: lighten($grey, 20);
+    background-size: 200px;
+  }
+
+  &.ft-end-block {
+    background-color: $grey;
+    background-image: url(../img/games/mod-start-logo.svg);
+    background-size: 280px;
+
+    &:hover {
+      background-color: lighten($grey, 5);
+    }
+
+    @media screen and ( max-width: 800px ) {
+      background-size: 220px;
+    }
+
+    @media screen and ( max-width: $medium ) {
+      background-size: 190px;
+    }
+
+    @media screen and ( max-width: $medium ) {
+      background-image: url(../img/games/mod-start-horiz-logo.svg);
+      background-position: center 25px;
+      background-size: 260px;
+      min-height: 80px;
+      height: 80px;
+      animation: none;
+      position: absolute;
+      top: 0;
+    }
+  }
+}
+
+.ft-pass-container &.ft-skip-btn {
+  animation: bounceup 1.5s, pulse 1s infinite alternate;
+  background-color: $grey;
+  background-image: url(../img/games/mod-skip-logo.svg);
+  background-position: bottom 20px right 15px;
+  background-repeat: no-repeat;
+  background-size: 240px;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: lighten($grey, 5);
+  }
+
+  @media screen and ( max-width: 800px ) {
+    background-size: 220px;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    background-size: 190px;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    background-image: url(../img/games/mod-skip-horiz-logo.svg);
+    background-position: center 20px;
+    background-size: 260px;
+    min-height: 80px;
+    height: 80px;
+    animation: none;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.ft-end-logo {
+  @extend .game-end-logo;
+  height: 180px;
+  margin-bottom: 20px;
+  background-size: 440px;
+
+  @media screen and ( max-width: $medium ) {
+    background-size: 270px;
+    height: 100px;
+    margin-bottom: 30px;
+  }
+
+  .ft-pass & {
+    background-image: url(../img/games/ft-passed-logo.svg);
+  }
+
+  .ft-fail & {
+    background-image: url(../img/games/ft-failed-logo.svg);
+  }
+}
+
+.ft-end-score-item {
+  display: block;
+  padding: 10px 5px;
+  margin-bottom: 4px;
+  border: 4px solid rgba(black, 0.1);
+  font-family: $montserrat;
+  font-size: 150px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 3px 3px 0 rgba(black, 0.2);
+  line-height: 1;
+  margin-bottom: 0;
+  display: block;
+  letter-spacing: -13px;
+  min-height: 180px;
+
+  .ft-pass-container & {
+    padding-top: 15px;
+    font-size: 140px;
+
+    @media screen and ( max-width: 800px ) {
+      font-size: 100px;
+      padding-top: 35px;
+    }
+
+    @media screen and ( max-width: $medium ) {
+      font-size: 140px;
+      padding-top: 15px;
+    }
+  }
+
+  @media screen and ( max-width: 800px ) {
+    font-size: 100px;
+    letter-spacing: -8px;
+    padding-top: 32px;
+  }
+
+  @media screen and ( max-width: $medium ) {
+    width: 100%;
+    min-height: 100px;
+    padding-top: 10px;
+    margin-right: 1%;
+    font-size: 100px;
+  }
+
+  span {
+    font-size: 100px;
+    vertical-align: middle;
+    top: 10px;
+    position: relative;
+    margin-left: 10px;
+
+    .ft-pass-container & {
+      font-size: 70px;
+      top: 15px;
+
+      @media screen and ( max-width: 800px ) {
+        font-size: 60px;
+        top: 5px;
+      }
+
+      @media screen and ( max-width: $medium ) {
+        top: 15px;
+      }
+    }
+
+    @media screen and ( max-width: 800px ) {
+      font-size: 70px;
+      top: 3px;
+    }
+  }
+}
+
+@keyframes ft-flashin {
+  0% { transform: scale(0.5) translate(-50%, -50%); opacity: 0; }
+  40% { transform: scale(1.1) translate(-50%, -50%); opacity: 1; }
+  100% { transform: scale(1) translate(-50%, -50%); opacity: 1; }
+}
+
+.ft-end-learn {
+  animation: bounceup 2s;
+  display: block;
+  background-color: rgba(darken($green, 5), 0.8);
+  border: 1px solid darken($green, 7);
+  box-shadow: inset 0 0 0 1px rgba(white, 0.1), 0 0 4px rgba(black, 0.1);
+  padding: 15px;
+  margin-top: 15px;
+  font-family: $montserrat;
+  text-align: left;
+  text-shadow: 1px 1px 0 rgba(black, 0.2);
+
+  @media screen and ( max-width: $medium ) {
+    margin-top: 100px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+}
+
+.ft-end-learn-btn {
+  float: right;
+  background-color: rgba(black, 0.15);
+  padding: 9px 15px;
+  color: white;
+  border-radius: 2px;
+  margin: -9px;
+  text-shadow: 1px 1px 0 rgba(black, 0.2);
+  transition: 0.1s;
+
+  @media screen and ( max-width: $medium ) {
+    display: table;
+    margin: 10px auto 0;
+    float: none;
+  }
+
+  &:hover {
+    background-color: rgba(black, 0.2);
+    color: white;
+  }
+}
